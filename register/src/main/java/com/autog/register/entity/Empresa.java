@@ -1,91 +1,48 @@
 package com.autog.register.entity;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 import java.time.LocalDate;
+import java.util.ArrayList;
+import java.util.List;
 
 @Entity
+@Table(name = "Empresa")
 public class Empresa {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "idEmpresa")
     private Integer idEmpresa;
 
     @NotBlank
+    @Column(name = "razaoSocial")
     private String razãoSocial;
 
     @NotBlank
+    @Column(name = "cnpj")
     private String cnpj;
 
     @NotBlank
+    @Column(name = "telefone")
     private String telefone;
 
     @NotBlank
+    @Column(name = "email")
     private String email;
 
     @NotNull
+    @Column(name = "dataAbertura")
     private LocalDate dataAbertura;
 
     @NotNull
+    @Column(name = "ativa")
     private Boolean ativa;
 
-    public Integer getIdEmpresa() {
-        return idEmpresa;
-    }
+    @OneToMany(mappedBy = "Empresa")
+    private List<Predio> predios = new ArrayList();
 
-    public void setIdEmpresa(Integer idEmpresa) {
-        this.idEmpresa = idEmpresa;
-    }
-
-    public String getRazãoSocial() {
-        return razãoSocial;
-    }
-
-    public void setRazãoSocial(String razãoSocial) {
-        this.razãoSocial = razãoSocial;
-    }
-
-    public String getCnpj() {
-        return cnpj;
-    }
-
-    public void setCnpj(String cnpj) {
-        this.cnpj = cnpj;
-    }
-
-    public String getTelefone() {
-        return telefone;
-    }
-
-    public void setTelefone(String telefone) {
-        this.telefone = telefone;
-    }
-
-    public String getEmail() {
-        return email;
-    }
-
-    public void setEmail(String email) {
-        this.email = email;
-    }
-
-    public LocalDate getDataAbertura() {
-        return dataAbertura;
-    }
-
-    public void setDataAbertura(LocalDate dataAbertura) {
-        this.dataAbertura = dataAbertura;
-    }
-
-    public Boolean getAtiva() {
-        return ativa;
-    }
-
-    public void setAtiva(Boolean ativa) {
-        this.ativa = ativa;
-    }
+    @OneToMany(mappedBy = "Empresa")
+    private List<Gestor> gestores = new ArrayList();
 }
