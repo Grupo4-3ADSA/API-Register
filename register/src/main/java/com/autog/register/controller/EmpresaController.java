@@ -1,5 +1,6 @@
 package com.autog.register.controller;
 
+import com.autog.register.dto.request.EmpresaUpdateData;
 import com.autog.register.entity.Empresa;
 import com.autog.register.repository.EmpresaRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -30,5 +31,30 @@ public class EmpresaController {
             return ResponseEntity.status(204).build();
         }
         return ResponseEntity.status(200).body(empresas);
+    }
+
+    @DeleteMapping("/{id}")
+    public ResponseEntity deleteCompanyById(@PathVariable Integer id) {
+        if (repository.existsById(id)) {
+            repository.deleteCompany(id);
+            return ResponseEntity.status(200).build();
+        }
+        return ResponseEntity.status(404).build();
+    }
+
+    @PutMapping("/{id}")
+    public ResponseEntity updateCompany(
+            @PathVariable Integer id,
+            @RequestBody EmpresaUpdateData request) {
+        if (repository.existsById(id)) {
+            repository.updateCompany(
+                    id,
+                    request.getRazaoSocial(),
+                    request.getCnpj(),
+                    request.getTelefone(),
+                    request.getEmail());
+            return ResponseEntity.status(200).build();
+        }
+        return ResponseEntity.status(404).build();
     }
 }

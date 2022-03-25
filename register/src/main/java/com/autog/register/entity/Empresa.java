@@ -18,7 +18,7 @@ public class Empresa {
 
     @NotBlank
     @Column(name = "razaoSocial")
-    private String razãoSocial;
+    private String razaoSocial;
 
     @NotBlank
     @Column(name = "cnpj")
@@ -54,12 +54,12 @@ public class Empresa {
         this.idEmpresa = idEmpresa;
     }
 
-    public String getRazãoSocial() {
-        return razãoSocial;
+    public String getRazaoSocial() {
+        return razaoSocial;
     }
 
-    public void setRazãoSocial(String razãoSocial) {
-        this.razãoSocial = razãoSocial;
+    public void setRazaoSocial(String razaoSocial) {
+        this.razaoSocial = razaoSocial;
     }
 
     public String getCnpj() {
