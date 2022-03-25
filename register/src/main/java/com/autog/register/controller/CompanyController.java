@@ -1,8 +1,8 @@
 package com.autog.register.controller;
 
 import com.autog.register.dto.request.EmpresaUpdateData;
-import com.autog.register.entity.Empresa;
-import com.autog.register.repository.EmpresaRepository;
+import com.autog.register.entity.Company;
+import com.autog.register.repository.CompanyRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -12,13 +12,13 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/empresas")
-public class EmpresaController {
+public class CompanyController {
 
     @Autowired
-    private EmpresaRepository repository;
+    private CompanyRepository repository;
 
     @PostMapping
-    public ResponseEntity registerCompany(@RequestBody @Valid Empresa novaEmpresa) {
+    public ResponseEntity registerCompany(@RequestBody @Valid Company novaEmpresa) {
         repository.save(novaEmpresa);
 
         return ResponseEntity.status(201).build();
@@ -26,11 +26,11 @@ public class EmpresaController {
 
     @GetMapping
     public ResponseEntity getCompanies() {
-        List<Empresa> empresas = repository.findAll();
-        if (empresas.isEmpty()) {
+        List<Company> companies = repository.findAll();
+        if (companies.isEmpty()) {
             return ResponseEntity.status(204).build();
         }
-        return ResponseEntity.status(200).body(empresas);
+        return ResponseEntity.status(200).body(companies);
     }
 
     @DeleteMapping("/{id}")
