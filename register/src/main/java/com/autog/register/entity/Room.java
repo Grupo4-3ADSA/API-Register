@@ -2,63 +2,61 @@ package com.autog.register.entity;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotBlank;
-import java.util.ArrayList;
-import java.util.List;
 
 @Entity
 @Table(name = "Sala")
-public class Sala {
+public class Room {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "idSala")
-    private Integer idSala;
+    private Integer idRoom;
 
     @NotBlank
     @Column(name = "nome")
-    private String nome;
+    private String name;
 
     @NotBlank
     @Column(name = "andar")
-    private String andar;
+    private String floor;
 
    // @OneToMany
     //@JoinColumn(name = "fkPredio")
-    private Integer fkPredio;
+    private Integer fkBuilding;
 
     //@OneToMany(mappedBy = "Predio")
     //private List<Equipamento> equipamentos = new ArrayList();
 
-    public Integer getIdSala() {
-        return idSala;
+    public Integer getIdRoom() {
+        return idRoom;
     }
 
-    public void setIdSala(Integer idSala) {
-        this.idSala = idSala;
+    public void setIdRoom(Integer idRoom) {
+        this.idRoom = idRoom;
     }
 
-    public String getNome() {
-        return nome;
+    public String getName() {
+        return name;
     }
 
-    public void setNome(String nome) {
-        this.nome = nome;
+    public void setName(String name) {
+        this.name = name;
     }
 
-    public String getAndar() {
-        return andar;
+    public String getFloor() {
+        return floor;
     }
 
-    public void setAndar(String andar) {
-        this.andar = andar;
+    public void setFloor(String floor) {
+        this.floor = floor;
     }
 
-    public Integer getFkPredio() {
-        return fkPredio;
+    public Integer getFkBuilding() {
+        return fkBuilding;
     }
 
-    public void setFkPredio(Integer fkPredio) {
-        this.fkPredio = fkPredio;
+    public void setFkBuilding(Integer fkBuilding) {
+        this.fkBuilding = fkBuilding;
     }
 
    // public List<Equipamento> getEquipamentos() {
