@@ -1,4 +1,4 @@
 package com.autog.register.service;
 
-public class EmpresaService {
+public class CompanyService {
 }

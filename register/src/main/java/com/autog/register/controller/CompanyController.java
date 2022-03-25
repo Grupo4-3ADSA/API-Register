@@ -11,7 +11,7 @@ import javax.validation.Valid;
 import java.util.List;
 
 @RestController
-@RequestMapping("/empresas")
+@RequestMapping("/companies")
 public class CompanyController {
 
     @Autowired

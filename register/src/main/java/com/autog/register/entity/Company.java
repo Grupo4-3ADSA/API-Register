@@ -12,11 +12,11 @@ public class Company {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "idEmpresa")
-    private Integer idEmpresa;
+    private Integer idCompany;
 
     @NotBlank
     @Column(name = "razaoSocial")
-    private String razaoSocial;
+    private String corporateName;
 
     @NotBlank
     @Column(name = "cnpj")
@@ -24,7 +24,7 @@ public class Company {
 
     @NotBlank
     @Column(name = "telefone")
-    private String telefone;
+    private String telephone;
 
     @NotBlank
     @Column(name = "email")
@@ -32,11 +32,11 @@ public class Company {
 
     @NotNull
     @Column(name = "dataAbertura")
-    private LocalDate dataAbertura;
+    private LocalDate openingDate;
 
     @NotNull
     @Column(name = "ativa")
-    private Boolean ativa;
+    private Boolean active;
 
    // @OneToMany(mappedBy = "Empresa")
    // private List<Predio> predios = new ArrayList();
@@ -44,20 +44,20 @@ public class Company {
    // @OneToMany(mappedBy = "Empresa")
    // private List<Gestor> gestores = new ArrayList();
 
-    public Integer getIdEmpresa() {
-        return idEmpresa;
+    public Integer getIdCompany() {
+        return idCompany;
     }
 
-    public void setIdEmpresa(Integer idEmpresa) {
-        this.idEmpresa = idEmpresa;
+    public void setIdCompany(Integer idCompany) {
+        this.idCompany = idCompany;
     }
 
-    public String getRazaoSocial() {
-        return razaoSocial;
+    public String getCorporateName() {
+        return corporateName;
     }
 
-    public void setRazaoSocial(String razaoSocial) {
-        this.razaoSocial = razaoSocial;
+    public void setCorporateName(String corporateName) {
+        this.corporateName = corporateName;
     }
 
     public String getCnpj() {
@@ -68,12 +68,12 @@ public class Company {
         this.cnpj = cnpj;
     }
 
-    public String getTelefone() {
-        return telefone;
+    public String getTelephone() {
+        return telephone;
     }
 
-    public void setTelefone(String telefone) {
-        this.telefone = telefone;
+    public void setTelephone(String telephone) {
+        this.telephone = telephone;
     }
 
     public String getEmail() {
@@ -84,20 +84,20 @@ public class Company {
         this.email = email;
     }
 
-    public LocalDate getDataAbertura() {
-        return dataAbertura;
+    public LocalDate getOpeningDate() {
+        return openingDate;
     }
 
-    public void setDataAbertura(LocalDate dataAbertura) {
-        this.dataAbertura = dataAbertura;
+    public void setOpeningDate(LocalDate openingDate) {
+        this.openingDate = openingDate;
     }
 
-    public Boolean getAtiva() {
-        return ativa;
+    public Boolean getActive() {
+        return active;
     }
 
-    public void setAtiva(Boolean ativa) {
-        this.ativa = ativa;
+    public void setActive(Boolean active) {
+        this.active = active;
     }
 
    // public List<Predio> getPredios() {

@@ -16,6 +16,6 @@ public interface CompanyRepository extends JpaRepository<Company, Integer> {
 
     @Transactional
     @Modifying
-    @Query("update Company s set s.razaoSocial = ?2, s.cnpj = ?3, s.telefone = ?4, s.email = ?5 where s.id = ?1")
-    void updateCompany(Integer id, String razaoSocial, String cnpj, String telefone, String email);
+    @Query("update Company s set s.corporateName = ?2, s.cnpj = ?3, s.telephone = ?4, s.email = ?5 where s.id = ?1")
+    void updateCompany(Integer id, String corporateName, String cnpj, String telephone, String email);
 }
