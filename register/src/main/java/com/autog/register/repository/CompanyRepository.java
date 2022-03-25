@@ -11,11 +11,11 @@ public interface CompanyRepository extends JpaRepository<Company, Integer> {
 
     @Transactional
     @Modifying
-    @Query("delete Company s where s.id = ?1")
+    @Query("DELETE Company s WHERE s.id = ?1")
     void deleteCompany(Integer id);
 
     @Transactional
     @Modifying
-    @Query("update Company s set s.corporateName = ?2, s.cnpj = ?3, s.telephone = ?4, s.email = ?5 where s.id = ?1")
+    @Query("UPDATE Company s SET s.corporateName = ?2, s.cnpj = ?3, s.telephone = ?4, s.email = ?5 WHERE s.id = ?1")
     void updateCompany(Integer id, String corporateName, String cnpj, String telephone, String email);
 }

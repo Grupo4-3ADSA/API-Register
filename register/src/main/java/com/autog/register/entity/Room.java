@@ -2,6 +2,7 @@ package com.autog.register.entity;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotNull;
 
 @Entity
 @Table(name = "Sala")
@@ -16,9 +17,9 @@ public class Room {
     @Column(name = "nome")
     private String name;
 
-    @NotBlank
+    @NotNull
     @Column(name = "andar")
-    private String floor;
+    private Integer floor;
 
    // @OneToMany
     //@JoinColumn(name = "fkPredio")
@@ -43,11 +44,11 @@ public class Room {
         this.name = name;
     }
 
-    public String getFloor() {
+    public Integer getFloor() {
         return floor;
     }
 
-    public void setFloor(String floor) {
+    public void setFloor(Integer floor) {
         this.floor = floor;
     }
 
