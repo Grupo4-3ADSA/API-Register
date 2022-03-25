@@ -1,6 +1,6 @@
 package com.autog.register.controller;
 
-import com.autog.register.dto.request.EmpresaUpdateData;
+import com.autog.register.dto.request.CompanyUpdateData;
 import com.autog.register.entity.Company;
 import com.autog.register.repository.CompanyRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -45,13 +45,13 @@ public class CompanyController {
     @PutMapping("/{id}")
     public ResponseEntity updateCompany(
             @PathVariable Integer id,
-            @RequestBody @Valid EmpresaUpdateData request) {
+            @RequestBody @Valid CompanyUpdateData request) {
         if (repository.existsById(id)) {
             repository.updateCompany(
                     id,
-                    request.getRazaoSocial(),
+                    request.getCorporateName(),
                     request.getCnpj(),
-                    request.getTelefone(),
+                    request.getTelephone(),
                     request.getEmail());
             return ResponseEntity.status(200).build();
         }
