@@ -45,7 +45,7 @@ public class CompanyController {
     @PutMapping("/{id}")
     public ResponseEntity updateCompany(
             @PathVariable Integer id,
-            @RequestBody EmpresaUpdateData request) {
+            @RequestBody @Valid EmpresaUpdateData request) {
         if (repository.existsById(id)) {
             repository.updateCompany(
                     id,
