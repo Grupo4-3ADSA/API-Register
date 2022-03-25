@@ -24,7 +24,47 @@ public class Gestor {
     @Column(name = "senha")
     private String senha;
 
-    @OneToMany
-    @JoinColumn(name = "fkEmpresa")
+    //@OneToMany
+   // @JoinColumn(name = "fkEmpresa")
     private Integer fkEmpresa;
+
+    public Integer getIdGestor() {
+        return idGestor;
+    }
+
+    public void setIdGestor(Integer idGestor) {
+        this.idGestor = idGestor;
+    }
+
+    public String getNome() {
+        return nome;
+    }
+
+    public void setNome(String nome) {
+        this.nome = nome;
+    }
+
+    public String getLogin() {
+        return login;
+    }
+
+    public void setLogin(String login) {
+        this.login = login;
+    }
+
+    public String getSenha() {
+        return senha;
+    }
+
+    public void setSenha(String senha) {
+        this.senha = senha;
+    }
+
+    public Integer getFkEmpresa() {
+        return fkEmpresa;
+    }
+
+    public void setFkEmpresa(Integer fkEmpresa) {
+        this.fkEmpresa = fkEmpresa;
+    }
 }

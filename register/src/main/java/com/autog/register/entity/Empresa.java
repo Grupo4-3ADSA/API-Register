@@ -40,9 +40,81 @@ public class Empresa {
     @Column(name = "ativa")
     private Boolean ativa;
 
-    @OneToMany(mappedBy = "Empresa")
-    private List<Predio> predios = new ArrayList();
+   // @OneToMany(mappedBy = "Empresa")
+   // private List<Predio> predios = new ArrayList();
 
-    @OneToMany(mappedBy = "Empresa")
-    private List<Gestor> gestores = new ArrayList();
+   // @OneToMany(mappedBy = "Empresa")
+   // private List<Gestor> gestores = new ArrayList();
+
+    public Integer getIdEmpresa() {
+        return idEmpresa;
+    }
+
+    public void setIdEmpresa(Integer idEmpresa) {
+        this.idEmpresa = idEmpresa;
+    }
+
+    public String getRazãoSocial() {
+        return razãoSocial;
+    }
+
+    public void setRazãoSocial(String razãoSocial) {
+        this.razãoSocial = razãoSocial;
+    }
+
+    public String getCnpj() {
+        return cnpj;
+    }
+
+    public void setCnpj(String cnpj) {
+        this.cnpj = cnpj;
+    }
+
+    public String getTelefone() {
+        return telefone;
+    }
+
+    public void setTelefone(String telefone) {
+        this.telefone = telefone;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    public LocalDate getDataAbertura() {
+        return dataAbertura;
+    }
+
+    public void setDataAbertura(LocalDate dataAbertura) {
+        this.dataAbertura = dataAbertura;
+    }
+
+    public Boolean getAtiva() {
+        return ativa;
+    }
+
+    public void setAtiva(Boolean ativa) {
+        this.ativa = ativa;
+    }
+
+   // public List<Predio> getPredios() {
+   //     return predios;
+    //}
+
+   // public void setPredios(List<Predio> predios) {
+   //     this.predios = predios;
+   // }
+
+  //  public List<Gestor> getGestores() {
+   //     return gestores;
+   // }
+
+   // public void setGestores(List<Gestor> gestores) {
+    //    this.gestores = gestores;
+   // }
 }

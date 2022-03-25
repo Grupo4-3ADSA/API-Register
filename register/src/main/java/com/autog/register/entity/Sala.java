@@ -22,10 +22,50 @@ public class Sala {
     @Column(name = "andar")
     private String andar;
 
-    @OneToMany
-    @JoinColumn(name = "fkPredio")
+   // @OneToMany
+    //@JoinColumn(name = "fkPredio")
     private Integer fkPredio;
 
-    @OneToMany(mappedBy = "Predio")
-    private List<Equipamento> equipamentos = new ArrayList();
+    //@OneToMany(mappedBy = "Predio")
+    //private List<Equipamento> equipamentos = new ArrayList();
+
+    public Integer getIdSala() {
+        return idSala;
+    }
+
+    public void setIdSala(Integer idSala) {
+        this.idSala = idSala;
+    }
+
+    public String getNome() {
+        return nome;
+    }
+
+    public void setNome(String nome) {
+        this.nome = nome;
+    }
+
+    public String getAndar() {
+        return andar;
+    }
+
+    public void setAndar(String andar) {
+        this.andar = andar;
+    }
+
+    public Integer getFkPredio() {
+        return fkPredio;
+    }
+
+    public void setFkPredio(Integer fkPredio) {
+        this.fkPredio = fkPredio;
+    }
+
+   // public List<Equipamento> getEquipamentos() {
+   //     return equipamentos;
+   // }
+
+   // public void setEquipamentos(List<Equipamento> equipamentos) {
+    //    this.equipamentos = equipamentos;
+    //}
 }

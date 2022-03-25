@@ -3,6 +3,7 @@ package com.autog.register.entity;
 import javax.persistence.*;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Positive;
 
 @Entity
 @Table(name = "Endereco")
@@ -18,6 +19,7 @@ public class Endereco {
     private String logradouro;
 
     @NotNull
+    @Positive
     @Column(name = "numero")
     private Integer numero;
 
@@ -33,7 +35,63 @@ public class Endereco {
     @Column(name = "uf")
     private String uf;
 
-    @OneToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "Predio")
-    private Predio predio;
+    //@OneToOne(fetch = FetchType.LAZY)
+    //@JoinColumn(name = "Predio")
+    //private Predio predio;
+
+    public Integer getIdEndereco() {
+        return idEndereco;
+    }
+
+    public void setIdEndereco(Integer idEndereco) {
+        this.idEndereco = idEndereco;
+    }
+
+    public String getLogradouro() {
+        return logradouro;
+    }
+
+    public void setLogradouro(String logradouro) {
+        this.logradouro = logradouro;
+    }
+
+    public Integer getNumero() {
+        return numero;
+    }
+
+    public void setNumero(Integer numero) {
+        this.numero = numero;
+    }
+
+    public String getBairro() {
+        return bairro;
+    }
+
+    public void setBairro(String bairro) {
+        this.bairro = bairro;
+    }
+
+    public String getCidade() {
+        return cidade;
+    }
+
+    public void setCidade(String cidade) {
+        this.cidade = cidade;
+    }
+
+    public String getUf() {
+        return uf;
+    }
+
+    public void setUf(String uf) {
+        this.uf = uf;
+    }
+
+    //public Predio getPredio() {
+     //   return predio;
+   // }
+
+    //public void setPredio(Predio predio) {
+     //   this.predio = predio;
+    //}
 }

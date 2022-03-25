@@ -25,7 +25,47 @@ public class Equipamento {
     @Column(name = "vidaUtil")
     private Integer vidaUtil;
 
-    @OneToMany
-    @JoinColumn(name = "fkSala")
+    //@OneToMany
+    //@JoinColumn(name = "fkSala")
     private Integer fkSala;
+
+    public Integer getIdEquipamento() {
+        return idEquipamento;
+    }
+
+    public void setIdEquipamento(Integer idEquipamento) {
+        this.idEquipamento = idEquipamento;
+    }
+
+    public String getNome() {
+        return nome;
+    }
+
+    public void setNome(String nome) {
+        this.nome = nome;
+    }
+
+    public LocalDate getDataInstalacao() {
+        return dataInstalacao;
+    }
+
+    public void setDataInstalacao(LocalDate dataInstalacao) {
+        this.dataInstalacao = dataInstalacao;
+    }
+
+    public Integer getVidaUtil() {
+        return vidaUtil;
+    }
+
+    public void setVidaUtil(Integer vidaUtil) {
+        this.vidaUtil = vidaUtil;
+    }
+
+    public Integer getFkSala() {
+        return fkSala;
+    }
+
+    public void setFkSala(Integer fkSala) {
+        this.fkSala = fkSala;
+    }
 }
