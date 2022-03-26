@@ -2,6 +2,8 @@ package com.autog.register.entity;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotBlank;
+import java.util.ArrayList;
+import java.util.List;
 
 @Entity
 @Table(name = "Predio")
@@ -21,6 +23,17 @@ public class Building {
 
     @OneToOne(mappedBy = "building")
     private Address address;
+
+    @OneToMany(mappedBy = "building")
+    private List<Room> rooms = new ArrayList();
+
+    public List<Room> getRooms() {
+        return rooms;
+    }
+
+    public void setRooms(List<Room> rooms) {
+        this.rooms = rooms;
+    }
 
     public Address getAddress() {
         return address;

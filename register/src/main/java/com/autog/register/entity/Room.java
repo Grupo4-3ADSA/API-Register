@@ -21,12 +21,9 @@ public class Room {
     @Column(name = "andar")
     private Integer floor;
 
-   // @OneToMany
-    //@JoinColumn(name = "fkPredio")
-    private Integer fkBuilding;
-
-    //@OneToMany(mappedBy = "Predio")
-    //private List<Equipamento> equipamentos = new ArrayList();
+    @ManyToOne
+    @JoinColumn(name = "fkPredio", referencedColumnName = "idPredio")
+    private Building building;
 
     public Integer getIdRoom() {
         return idRoom;
@@ -52,15 +49,15 @@ public class Room {
         this.floor = floor;
     }
 
-    public Integer getFkBuilding() {
-        return fkBuilding;
+    public Building getBuilding() {
+        return building;
     }
 
-    public void setFkBuilding(Integer fkBuilding) {
-        this.fkBuilding = fkBuilding;
+    public void setBuilding(Building building) {
+        this.building = building;
     }
 
-   // public List<Equipamento> getEquipamentos() {
+// public List<Equipamento> getEquipamentos() {
    //     return equipamentos;
    // }
 
