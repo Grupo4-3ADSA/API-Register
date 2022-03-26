@@ -18,9 +18,8 @@ public class CompanyController {
     private CompanyRepository repository;
 
     @PostMapping
-    public ResponseEntity registerCompany(@RequestBody @Valid Company novaEmpresa) {
-        repository.save(novaEmpresa);
-
+    public ResponseEntity registerCompany(@RequestBody @Valid Company newCompany) {
+        repository.save(newCompany);
         return ResponseEntity.status(201).build();
     }
 
