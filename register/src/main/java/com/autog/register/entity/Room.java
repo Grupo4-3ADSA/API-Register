@@ -62,12 +62,4 @@ public class Room {
     public void setBuilding(Building building) {
         this.building = building;
     }
-
-// public List<Equipamento> getEquipamentos() {
-   //     return equipamentos;
-   // }
-
-   // public void setEquipamentos(List<Equipamento> equipamentos) {
-    //    this.equipamentos = equipamentos;
-    //}
 }

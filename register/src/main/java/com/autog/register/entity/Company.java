@@ -101,20 +101,4 @@ public class Company {
     public void setActive(Boolean active) {
         this.active = active;
     }
-
-   // public List<Predio> getPredios() {
-   //     return predios;
-    //}
-
-   // public void setPredios(List<Predio> predios) {
-   //     this.predios = predios;
-   // }
-
-  //  public List<Gestor> getGestores() {
-   //     return gestores;
-   // }
-
-   // public void setGestores(List<Gestor> gestores) {
-    //    this.gestores = gestores;
-   // }
 }

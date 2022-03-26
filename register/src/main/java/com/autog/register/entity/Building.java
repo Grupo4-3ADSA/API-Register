@@ -66,20 +66,4 @@ public class Building {
     public void setCompany(Company company) {
         this.company = company;
     }
-
-    // public List<Sala> getSalas() {
-  //      return salas;
-   // }
-
-   // public void setSalas(List<Sala> salas) {
-   //     this.salas = salas;
-   // }
-
-   // public Endereco getEndereco() {
-   //     return endereco;
-  //  }
-
-   // public void setEndereco(Endereco endereco) {
-    //    this.endereco = endereco;
-    //}
 }

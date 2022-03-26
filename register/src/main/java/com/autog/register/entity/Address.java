@@ -94,12 +94,4 @@ public class Address {
     public void setState(String state) {
         this.state = state;
     }
-
-    //public Predio getPredio() {
-     //   return predio;
-   // }
-
-    //public void setPredio(Predio predio) {
-     //   this.predio = predio;
-    //}
 }
