@@ -35,9 +35,17 @@ public class Address {
     @Column(name = "uf")
     private String state;
 
-    //@OneToOne(fetch = FetchType.LAZY)
-    //@JoinColumn(name = "Predio")
-    //private Predio predio;
+    @OneToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "fkPredio", referencedColumnName = "idPredio")
+    private Building building;
+
+    public Building getBuilding() {
+        return building;
+    }
+
+    public void setBuilding(Building building) {
+        this.building = building;
+    }
 
     public Integer getIdAddress() {
         return idAddress;

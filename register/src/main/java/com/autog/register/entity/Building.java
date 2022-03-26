@@ -19,11 +19,16 @@ public class Building {
    // @JoinColumn(name = "fkEmpresa")
     private Integer fkCompany;
 
-   // @OneToMany(mappedBy = "Predio")
-   // private List<Sala> salas = new ArrayList();
+    @OneToOne(mappedBy = "building")
+    private Address address;
 
-   // @OneToOne(mappedBy = "Predio", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
-   // private Endereco endereco;
+    public Address getAddress() {
+        return address;
+    }
+
+    public void setAddress(Address address) {
+        this.address = address;
+    }
 
     public Integer getIdBuilding() {
         return idBuilding;
