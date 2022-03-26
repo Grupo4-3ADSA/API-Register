@@ -15,9 +15,9 @@ public class Building {
     @Column(name = "nome")
     private String name;
 
-   // @OneToMany
-   // @JoinColumn(name = "fkEmpresa")
-    private Integer fkCompany;
+    @ManyToOne
+    @JoinColumn(name = "fkEmpresa", referencedColumnName = "idEmpresa")
+    private Company company;
 
     @OneToOne(mappedBy = "building")
     private Address address;
@@ -46,15 +46,15 @@ public class Building {
         this.name = name;
     }
 
-    public Integer getFkCompany() {
-        return fkCompany;
+    public Company getCompany() {
+        return company;
     }
 
-    public void setFkCompany(Integer fkCompany) {
-        this.fkCompany = fkCompany;
+    public void setCompany(Company company) {
+        this.company = company;
     }
 
-   // public List<Sala> getSalas() {
+    // public List<Sala> getSalas() {
   //      return salas;
    // }
 

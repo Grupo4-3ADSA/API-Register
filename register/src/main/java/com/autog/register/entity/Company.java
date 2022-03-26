@@ -4,6 +4,8 @@ import javax.persistence.*;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 import java.time.LocalDate;
+import java.util.ArrayList;
+import java.util.List;
 
 @Entity
 @Table(name = "Empresa")
@@ -38,8 +40,8 @@ public class Company {
     @Column(name = "ativa")
     private Boolean active;
 
-   // @OneToMany(mappedBy = "Empresa")
-   // private List<Predio> predios = new ArrayList();
+    @OneToMany(mappedBy = "company")
+    private List<Building> buildings = new ArrayList();
 
    // @OneToMany(mappedBy = "Empresa")
    // private List<Gestor> gestores = new ArrayList();
