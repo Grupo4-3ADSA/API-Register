@@ -1,10 +1,9 @@
 package com.autog.register.controller;
 
 import com.autog.register.dto.request.EquipamentRequest;
-import com.autog.register.dto.request.RoomRequest;
-import com.autog.register.entity.Company;
 import com.autog.register.entity.Equipment;
-import com.autog.register.repository.EquipmentRepository;
+import com.autog.register.entity.Manager;
+import com.autog.register.repository.ManagerRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -13,40 +12,40 @@ import javax.validation.Valid;
 import java.util.List;
 
 @RestController
-@RequestMapping("/equipments")
-public class EquipamentController {
+@RequestMapping("/managers")
+public class ManagerController {
 
     @Autowired
-    private EquipmentRepository repository;
+    private ManagerRepository repository;
 
     @PostMapping
-    public ResponseEntity registerEquipment(@RequestBody @Valid Equipment newEquipment) {
-        repository.save(newEquipment);
+    public ResponseEntity registerEquipment(@RequestBody @Valid Manager newManager) {
+        repository.save(newManager);
         return ResponseEntity.status(201).build();
     }
 
     @GetMapping
-    public ResponseEntity getEquipment() {
-        List<Equipment> equipments = repository.findAll();
-        if (equipments.isEmpty()) {
+    public ResponseEntity getManagers() {
+        List<Manager> managers = repository.findAll();
+        if (managers.isEmpty()) {
             return ResponseEntity.status(204).build();
         }
-        return ResponseEntity.status(200).body(equipments);
+        return ResponseEntity.status(200).body(managers);
     }
 
     @PatchMapping("/{id}")
-    public ResponseEntity editEquipment(@PathVariable Integer id, @RequestBody @Valid EquipamentRequest request) {
+    public ResponseEntity editManager(@PathVariable Integer id, @RequestBody @Valid Manager request) {
         if (repository.existsById(id)) {
-            repository.updateEquipment(id, request.getName());
+            repository.updateManager(id, request.getName(), request.getLogin(), request.getPassword());
             return ResponseEntity.status(200).build();
         }
         return ResponseEntity.status(404).build();
     }
 
     @DeleteMapping("/{id}")
-    public ResponseEntity deleteEquipmentById(@PathVariable Integer id) {
+    public ResponseEntity deleteManagerById(@PathVariable Integer id) {
         if (repository.existsById(id)) {
-            repository.deleteEquipment(id);
+            repository.deleteManager(id);
             return ResponseEntity.status(200).build();
         }
         return ResponseEntity.status(404).build();
