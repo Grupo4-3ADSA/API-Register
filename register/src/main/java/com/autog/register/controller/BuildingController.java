@@ -1,7 +1,7 @@
 package com.autog.register.controller;
 
 import com.autog.register.entity.Building;
-import com.autog.register.repository.BuildingRepository;
+import com.autog.register.service.BuildingService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -16,11 +16,10 @@ import javax.validation.Valid;
 public class BuildingController {
 
     @Autowired
-    private BuildingRepository repository;
+    private BuildingService service;
 
     @PostMapping
     public ResponseEntity registerBuilding(@RequestBody @Valid Building newBuilding) {
-        repository.save(newBuilding);
-        return ResponseEntity.status(201).build();
+        return service.registerBuilding(newBuilding);
     }
 }

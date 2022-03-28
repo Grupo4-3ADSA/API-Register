@@ -1,8 +1,6 @@
 package com.autog.register.controller;
 
 import com.autog.register.dto.request.EquipamentRequest;
-import com.autog.register.dto.request.RoomRequest;
-import com.autog.register.entity.Company;
 import com.autog.register.entity.Equipment;
 import com.autog.register.repository.EquipmentRepository;
 import org.springframework.beans.factory.annotation.Autowired;
