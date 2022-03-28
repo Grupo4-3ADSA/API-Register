@@ -1,6 +1,6 @@
 package com.autog.register.service;
 
-import com.autog.register.dto.request.EquipamentRequest;
+import com.autog.register.dto.request.EquipmentRequest;
 import com.autog.register.entity.Equipment;
 import com.autog.register.repository.EquipmentRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -10,7 +10,7 @@ import org.springframework.stereotype.Service;
 import java.util.List;
 
 @Service
-public class EquipamentService {
+public class EquipmentService {
 
     @Autowired
     private EquipmentRepository repository;
@@ -28,7 +28,7 @@ public class EquipamentService {
         return ResponseEntity.status(200).body(equipments);
     }
 
-    public ResponseEntity editEquipment(Integer id, EquipamentRequest request) {
+    public ResponseEntity editEquipment(Integer id, EquipmentRequest request) {
         if (repository.existsById(id)) {
             repository.updateEquipment(id, request.getName());
             return ResponseEntity.status(200).build();

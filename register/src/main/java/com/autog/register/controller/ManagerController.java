@@ -1,7 +1,5 @@
 package com.autog.register.controller;
 
-import com.autog.register.dto.request.EquipamentRequest;
-import com.autog.register.entity.Equipment;
 import com.autog.register.entity.Manager;
 import com.autog.register.repository.ManagerRepository;
 import org.springframework.beans.factory.annotation.Autowired;

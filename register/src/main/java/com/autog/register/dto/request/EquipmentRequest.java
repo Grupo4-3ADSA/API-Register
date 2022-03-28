@@ -1,6 +1,6 @@
 package com.autog.register.dto.request;
 
-public class EquipamentRequest {
+public class EquipmentRequest {
 
     private String name;
 
