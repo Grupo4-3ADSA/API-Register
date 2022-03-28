@@ -4,6 +4,7 @@ import com.autog.register.dto.request.RoomRequest;
 import com.autog.register.dto.response.RoomResponse;
 import com.autog.register.entity.Room;
 import com.autog.register.repository.RoomRepository;
+import com.autog.register.service.RoomService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -16,38 +17,25 @@ import java.util.List;
 public class RoomController {
 
     @Autowired
-    private RoomRepository repository;
+    private RoomService service;
 
     @PostMapping
     public ResponseEntity registerRoom(@RequestBody @Valid Room newRoom) {
-        repository.save(newRoom);
-        return ResponseEntity.status(201).build();
+        return service.registerRoom(newRoom);
     }
 
     @GetMapping
     public ResponseEntity listAllRooms() {
-        List<RoomResponse> selectedList = repository.selectedList();
-        if (selectedList.isEmpty()) {
-            return ResponseEntity.status(204).build();
-        }
-        return ResponseEntity.status(200).body(selectedList);
+        return service.listAllRooms();
     }
 
     @PatchMapping("/{id}")
     public ResponseEntity editRoom(@PathVariable Integer id, @RequestBody @Valid RoomRequest request) {
-        if (repository.existsById(id)) {
-            repository.updateRoom(id, request.getName(), request.getFloor());
-            return ResponseEntity.status(200).build();
-        }
-        return ResponseEntity.status(404).build();
+        return service.editRoom(id, request);
     }
 
     @DeleteMapping("/{id}")
     public ResponseEntity deleteRoom(@PathVariable Integer id) {
-        if (repository.existsById(id)) {
-            repository.deleteRoom(id);
-            return ResponseEntity.status(200).build();
-        }
-        return ResponseEntity.status(404).build();
+        return service.deleteRoom(id);
     }
 }
