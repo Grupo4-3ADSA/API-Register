@@ -1,0 +1,7 @@
+server:
+  servlet:
+    context-path: /v1/register/
+spring:
+  mvc:
+    pathmatch:
+      matching-strategy: ant_path_matcher
