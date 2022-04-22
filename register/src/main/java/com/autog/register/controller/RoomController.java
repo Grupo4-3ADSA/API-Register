@@ -18,12 +18,13 @@ public class RoomController {
 
     @Autowired
     private RoomService service;
-
+    
     @PostMapping
     public ResponseEntity registerRoom(@RequestBody @Valid Room newRoom) {
         return service.registerRoom(newRoom);
     }
-
+    
+    
     @GetMapping
     public ResponseEntity listAllRooms() {
         return service.listAllRooms();
