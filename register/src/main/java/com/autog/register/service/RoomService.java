@@ -30,6 +30,7 @@ public class RoomService {
         return ResponseEntity.status(200).body(selectedList);
     }
 
+    @CrossOrigin
     public ResponseEntity editRoom(Integer id, RoomRequest request) {
         if (repository.existsById(id)) {
             repository.updateRoom(id, request.getName(), request.getFloor());
