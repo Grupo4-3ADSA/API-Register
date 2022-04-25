@@ -25,9 +25,18 @@ public class Equipment {
     @Column(name = "vidaUtil")
     private Integer lifespan;
 
-    @ManyToOne
+  //  @ManyToOne
     @JoinColumn(name = "fkSala", referencedColumnName = "idSala")
-    private Room room;
+    private Integer fkSala;
+  //  private Room room;
+
+    public Integer getFkSala() {
+        return fkSala;
+    }
+
+    public void setFkSala(Integer fkSala) {
+        this.fkSala = fkSala;
+    }
 
     public Integer getIdEquipment() {
         return idEquipment;
@@ -61,11 +70,11 @@ public class Equipment {
         this.lifespan = lifespan;
     }
 
-    public Room getRoom() {
-        return room;
-    }
+   // public Room getRoom() {
+ //       return room;
+  //  }
 
-    public void setRoom(Room room) {
-        this.room = room;
-    }
+   // public void setRoom(Room room) {
+    //    this.room = room;
+   // }
 }

@@ -27,8 +27,8 @@ public class Room {
     @JoinColumn(name = "fkPredio", referencedColumnName = "idPredio")
     private Building building;
 
-    @OneToMany(mappedBy = "room")
-    private List<Equipment> equipment = new ArrayList();
+//    @OneToMany(mappedBy = "room")
+ //   private List<Equipment> equipment = new ArrayList();
 
 
     public Integer getIdRoom() {
