@@ -18,6 +18,18 @@ public class Equipment {
     @Column(name = "nome")
     private String name;
 
+    @Column(name = "tipo")
+    private String type;
+
+    @Column(name = "potencia")
+    private Integer potency;
+
+    @Column(name = "qtdEquipamento")
+    private Integer amountOfEquipment;
+
+    @Column(name = "porta")
+    private Integer port;
+
     @NotNull
     @Column(name = "instalacao")
     private LocalDate installationDate;
@@ -26,16 +38,48 @@ public class Equipment {
     private Integer lifespan;
 
   //  @ManyToOne
-    @JoinColumn(name = "fkSala", referencedColumnName = "idSala")
-    private Integer fkSala;
+    @JoinColumn(name = "fkCLNBox", referencedColumnName = "idCLNBox")
+    private Integer fkCLNBox;
   //  private Room room;
 
     public Integer getFkSala() {
-        return fkSala;
+        return fkCLNBox;
     }
 
     public void setFkSala(Integer fkSala) {
-        this.fkSala = fkSala;
+        this.fkCLNBox = fkSala;
+    }
+
+    public String getType() {
+        return type;
+    }
+
+    public void setType(String type) {
+        this.type = type;
+    }
+
+    public Integer getPotency() {
+        return potency;
+    }
+
+    public void setPotency(Integer potency) {
+        this.potency = potency;
+    }
+
+    public Integer getAmountOfEquipment() {
+        return amountOfEquipment;
+    }
+
+    public void setAmountOfEquipment(Integer amountOfEquipment) {
+        this.amountOfEquipment = amountOfEquipment;
+    }
+
+    public Integer getPort() {
+        return port;
+    }
+
+    public void setPort(Integer port) {
+        this.port = port;
     }
 
     public Integer getIdEquipment() {
