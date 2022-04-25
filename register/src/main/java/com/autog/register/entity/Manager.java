@@ -24,9 +24,18 @@ public class Manager {
     @Column(name = "senha")
     private String password;
 
-    @ManyToOne
+    //@ManyToOne
     @JoinColumn(name = "fkEmpresa", referencedColumnName = "idEmpresa")
-    private Company company;
+    private Integer fkEmpresa;
+//    private Company company;
+
+    public Integer getFkCompany() {
+        return fkEmpresa;
+    }
+
+    public void setFkCompany(Integer fkCompany) {
+        this.fkEmpresa = fkCompany;
+    }
 
     public Integer getIdManager() {
         return idManager;
@@ -60,11 +69,11 @@ public class Manager {
         this.password = password;
     }
 
-    public Company getCompany() {
-        return company;
-    }
+  //  public Company getCompany() {
+  //     return company;
+  //  }
 
-    public void setCompany(Company company) {
-        this.company = company;
-    }
+   // public void setCompany(Company company) {
+    //    this.company = company;
+   // }
 }

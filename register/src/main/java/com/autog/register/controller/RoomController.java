@@ -30,7 +30,7 @@ public class RoomController {
         return service.listAllRooms();
     }
 
-    @PatchMapping("/{id}")
+    @PutMapping("/{id}")
     public ResponseEntity editRoom(@PathVariable Integer id, @RequestBody @Valid RoomRequest request) {
         return service.editRoom(id, request);
     }
