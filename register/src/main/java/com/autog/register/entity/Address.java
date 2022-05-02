@@ -36,7 +36,7 @@ public class Address {
     private String state;
 
     @OneToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name = "fkPredio", referencedColumnName = "idPredio")
+    @JoinColumn(name = "fkPredio")
     private Building building;
 
     public Building getBuilding() {

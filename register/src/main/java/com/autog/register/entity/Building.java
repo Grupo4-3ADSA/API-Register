@@ -21,27 +21,27 @@ public class Building {
     @JoinColumn(name = "fkEmpresa", referencedColumnName = "idEmpresa")
     private Company company;
 
-    @OneToOne(mappedBy = "building")
-    private Address address;
+//    @OneToOne(mappedBy = "building")
+//    private Address address;
 
-    @OneToMany(mappedBy = "building")
-    private List<Room> rooms = new ArrayList();
+//    @OneToMany(mappedBy = "building")
+//    private List<Room> rooms = new ArrayList();
 
-    public List<Room> getRooms() {
-        return rooms;
-    }
+//    public List<Room> getRooms() {
+//        return rooms;
+//    }
+//
+//    public void setRooms(List<Room> rooms) {
+//        this.rooms = rooms;
+//    }
 
-    public void setRooms(List<Room> rooms) {
-        this.rooms = rooms;
-    }
-
-    public Address getAddress() {
-        return address;
-    }
-
-    public void setAddress(Address address) {
-        this.address = address;
-    }
+//    public Address getAddress() {
+//        return address;
+//    }
+//
+//    public void setAddress(Address address) {
+//        this.address = address;
+//    }
 
     public Integer getIdBuilding() {
         return idBuilding;
