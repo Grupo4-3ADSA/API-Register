@@ -18,6 +18,10 @@ public class Equipment {
     @Column(name = "nome")
     private String name;
 
+    @NotBlank
+    @Column(name = "tipo")
+    private String type;
+
     @NotNull
     @Column(name = "instalacao")
     private LocalDate installationDate;
@@ -25,9 +29,21 @@ public class Equipment {
     @Column(name = "vidaUtil")
     private Integer lifespan;
 
+    @NotNull
+    @Column(name = "potencia")
+    private Integer potency;
+
+    @NotNull
+    @Column(name = "qtdEquipamento")
+    private Integer qtdEquipment;
+
+    @NotNull
+    @Column(name = "porta")
+    private Integer door;
+
     @ManyToOne
-    @JoinColumn(name = "fkSala", referencedColumnName = "idSala")
-    private Room room;
+    @JoinColumn(name = "fkClnBox", referencedColumnName = "idClnBox")
+    private ClnBox clnBox;
 
     public Integer getIdEquipment() {
         return idEquipment;
@@ -61,11 +77,23 @@ public class Equipment {
         this.lifespan = lifespan;
     }
 
-    public Room getRoom() {
-        return room;
+    public String getType() {
+        return type;
     }
 
-    public void setRoom(Room room) {
-        this.room = room;
+    public Integer getPotency() {
+        return potency;
+    }
+
+    public Integer getQtdEquipment() {
+        return qtdEquipment;
+    }
+
+    public Integer getDoor() {
+        return door;
+    }
+
+    public ClnBox getClnBox() {
+        return clnBox;
     }
 }
