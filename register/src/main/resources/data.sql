@@ -43,10 +43,10 @@ insert into Agendamento (data, horario, ligar, fk_sala) values ('2022-05-20', '1
 insert into Agendamento (data, horario, ligar, fk_sala) values ('2022-05-20', '21:45:00', false, 4);
 
 -- Tabela CLNBox
-insert into CLNBox (qrCode, ip, fk_sala) values ('1-box-contabilidade-sala-de-reuniao', '97.178.103.78', 1);
-insert into CLNBox (qrCode, ip, fk_sala) values ('2-box-contabilidade-sala-rh', '20.69.203.245', 2);
-insert into CLNBox (qrCode, ip, fk_sala) values ('1-box-faculdade-sala-1a', '3.242.208.236', 3);
-insert into CLNBox (qrCode, ip, fk_sala) values ('2-box-faculdade-sala-1b', '206.131.15.178', 4);
+insert into CLNBox (qr_code, ip, fk_sala) values ('1-box-contabilidade-sala-de-reuniao', '97.178.103.78', 1);
+insert into CLNBox (qr_code, ip, fk_sala) values ('2-box-contabilidade-sala-rh', '20.69.203.245', 2);
+insert into CLNBox (qr_code, ip, fk_sala) values ('1-box-faculdade-sala-1a', '3.242.208.236', 3);
+insert into CLNBox (qr_code, ip, fk_sala) values ('2-box-faculdade-sala-1b', '206.131.15.178', 4);
 
 -- Tabela Equipment - Equipamento
 insert into Equipamento (nome, tipo, instalacao, vida_util, potencia, qtd_equipamento, porta, fk_cln_box)
@@ -98,11 +98,11 @@ insert into Registro (fk_equipamento, ligado, data) values (10, true, '2022-05-2
 insert into Registro (fk_equipamento, ligado, data) values (11, true, '2022-05-20 16:30:00');
 
 -- Tabela TemperatureSensor - SensorTemperatura
-insert into SensorTemperatura (temperatura, data, fk_equipamento) values (21.0 , '2022-05-20 10:30:00', 1);
-insert into SensorTemperatura (temperatura, data, fk_equipamento) values (21.0, '2022-05-20 10:35:00', 2);
-insert into SensorTemperatura (temperatura, data, fk_equipamento) values (20.0, '2022-05-20 10:35:00', 3);
-insert into SensorTemperatura (temperatura, data, fk_equipamento) values (19.0, '2022-05-20 17:45:00', 6);
-insert into SensorTemperatura (temperatura, data, fk_equipamento) values (21.0, '2022-05-20 17:35:00', 7);
-insert into SensorTemperatura (temperatura, data, fk_equipamento) values (20.0, '2022-05-20 18:36:00', 8);
-insert into SensorTemperatura (temperatura, data, fk_equipamento) values (19.0, '2022-05-20 18:35:00', 9);
+insert into sensor_temperatura (temperatura, data, fk_equipamento) values (21.0 , '2022-05-20 10:30:00', 1);
+insert into sensor_temperatura (temperatura, data, fk_equipamento) values (21.0, '2022-05-20 10:35:00', 2);
+insert into sensor_temperatura (temperatura, data, fk_equipamento) values (20.0, '2022-05-20 10:35:00', 3);
+insert into sensor_temperatura (temperatura, data, fk_equipamento) values (19.0, '2022-05-20 17:45:00', 6);
+insert into sensor_temperatura (temperatura, data, fk_equipamento) values (21.0, '2022-05-20 17:35:00', 7);
+insert into sensor_temperatura (temperatura, data, fk_equipamento) values (20.0, '2022-05-20 18:36:00', 8);
+insert into sensor_temperatura (temperatura, data, fk_equipamento) values (19.0, '2022-05-20 18:35:00', 9);
 

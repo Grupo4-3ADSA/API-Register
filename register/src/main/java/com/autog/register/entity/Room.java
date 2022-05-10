@@ -27,9 +27,9 @@ public class Room {
     @JoinColumn(name = "fkPredio", referencedColumnName = "idPredio")
     private Building building;
 
-    @OneToMany(mappedBy = "room")
-    private List<Equipment> equipment = new ArrayList();
-
+    @OneToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "fkClnbox")
+    private ClnBox clnBox;
 
     public Integer getIdRoom() {
         return idRoom;
