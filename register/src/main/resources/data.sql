@@ -31,3 +31,70 @@ insert into Sala (nome, andar, fk_predio) values ('Sala de reuniões', 2, 250);
 insert into Sala (nome, andar, fk_predio) values ('Recursos Humanos', 4, 250);
 insert into Sala (nome, andar, fk_predio) values ('A', 1, 251);
 insert into Sala (nome, andar, fk_predio) values ('B', 1, 251);
+
+-- Tabela Scheduling - Agendamento
+insert into Agendamento (data, horario, ligar, fk_sala) values ('2022-05-20', '07:30:00', true, 1);
+insert into Agendamento (data, horario, ligar, fk_sala) values ('2022-05-20', '12:00:00', false, 1);
+insert into Agendamento (data, horario, ligar, fk_sala) values ('2022-05-20', '09:00:00', true, 2);
+insert into Agendamento (data, horario, ligar, fk_sala) values ('2022-05-20', '17:00:00', false, 2);
+insert into Agendamento (data, horario, ligar, fk_sala) values ('2022-05-20', '16:30:00', true, 3);
+insert into Agendamento (data, horario, ligar, fk_sala) values ('2022-05-20', '21:45:00', false, 3);
+insert into Agendamento (data, horario, ligar, fk_sala) values ('2022-05-20', '16:30:00', true, 4);
+insert into Agendamento (data, horario, ligar, fk_sala) values ('2022-05-20', '21:45:00', false, 4);
+
+-- Tabela CLNBox
+insert into CLNBox (qrCode, ip, fk_sala) values ('1-box-contabilidade-sala-de-reuniao', '97.178.103.78', 1);
+insert into CLNBox (qrCode, ip, fk_sala) values ('2-box-contabilidade-sala-rh', '20.69.203.245', 2);
+insert into CLNBox (qrCode, ip, fk_sala) values ('1-box-faculdade-sala-1a', '3.242.208.236', 3);
+insert into CLNBox (qrCode, ip, fk_sala) values ('2-box-faculdade-sala-1b', '206.131.15.178', 4);
+
+-- Tabela Equipment - Equipamento
+insert into Equipamento (nome, tipo, instalacao, vida_util, potencia, qtd_equipamento, porta, fk_cln_box)
+values ('Springer Midea Inverter 12.000 Btus','Ar-condicionado', '2022-03-25', 3650,
+220, 1, 1, 1);
+insert into Equipamento (nome, tipo, instalacao, vida_util, potencia, qtd_equipamento, porta, fk_cln_box)
+values ('Springer Midea Inverter 12.000 Btus','Ar-condicionado', '2022-03-25', 3650,
+220, 2, 5, 2);
+insert into Equipamento (nome, tipo, instalacao, vida_util, potencia, qtd_equipamento, porta, fk_cln_box)
+values ('Springer Midea Inverter 12.000 Btus','Ar-condicionado', '2022-03-25', 3650,
+220, 2, 5, 2);
+insert into Equipamento (nome, tipo, instalacao, vida_util, potencia, qtd_equipamento, porta, fk_cln_box)
+values ('Lampada LED Philips','Conjunto de Lampadas', '2022-03-25', 2000,
+220, 4, 1, 1);
+insert into Equipamento (nome, tipo, instalacao, vida_util, potencia, qtd_equipamento, porta, fk_cln_box)
+values ('Lampada LED Philips','Conjunto de Lampadas', '2022-03-25', 2000,
+220, 12, 5, 2);
+
+insert into Equipamento (nome, tipo, instalacao, vida_util, potencia, qtd_equipamento, porta, fk_cln_box)
+values ('Split LG Dual Inverter Voice ARTCOOL UV Nano','Ar-condicionado', '2022-03-01', 3650,
+220, 2, 1, 3);
+insert into Equipamento (nome, tipo, instalacao, vida_util, potencia, qtd_equipamento, porta, fk_cln_box)
+values ('Split LG Dual Inverter Voice ARTCOOL UV Nano','Ar-condicionado', '2022-03-01', 3650,
+220, 2, 5, 3);
+insert into Equipamento (nome, tipo, instalacao, vida_util, potencia, qtd_equipamento, porta, fk_cln_box)
+values ('Split LG Dual Inverter Voice ARTCOOL UV Nano','Ar-condicionado', '2022-03-01', 3650,
+220, 2, 1, 4);
+insert into Equipamento (nome, tipo, instalacao, vida_util, potencia, qtd_equipamento, porta, fk_cln_box)
+values ('Split LG Dual Inverter Voice ARTCOOL UV Nano','Ar-condicionado', '2022-03-01', 3650,
+220, 2, 5, 4);
+
+insert into Equipamento (nome, tipo, instalacao, vida_util, potencia, qtd_equipamento, porta, fk_cln_box)
+values ('Lampada LED Philips','Conjunto de Lampadas', '2022-03-01', 2000, 220, 20, 5, 3);
+insert into Equipamento (nome, tipo, instalacao, vida_util, potencia, qtd_equipamento, porta, fk_cln_box)
+values ('Lampada LED Philips','Conjunto de Lampadas', '2022-03-01', 2000, 220, 20, 1, 4);
+
+-- Tabela Register - Registro
+insert into Registro (fk_equipamento, ligado, data) values (1, true, '2022-05-20 07:30:00');
+insert into Registro (fk_equipamento, ligado, data) values (2, true, '2022-05-20 09:00:00');
+insert into Registro (fk_equipamento, ligado, data) values (3, true, '2022-05-20 09:00:00');
+insert into Registro (fk_equipamento, ligado, data) values (4, true, '2022-05-20 07:30:00');
+insert into Registro (fk_equipamento, ligado, data) values (5, true, '2022-05-20 09:00:00');
+
+insert into Registro (fk_equipamento, ligado, data) values (6, true, '2022-05-20 16:30:00');
+insert into Registro (fk_equipamento, ligado, data) values (7, true, '2022-05-20 16:30:00');
+insert into Registro (fk_equipamento, ligado, data) values (8, true, '2022-05-20 16:30:00');
+insert into Registro (fk_equipamento, ligado, data) values (9, true, '2022-05-20 16:30:00');
+insert into Registro (fk_equipamento, ligado, data) values (10, true, '2022-05-20 16:30:00');
+insert into Registro (fk_equipamento, ligado, data) values (11, true, '2022-05-20 16:30:00');
+
+-- Tabela Register - Registro

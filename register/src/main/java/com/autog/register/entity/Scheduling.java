@@ -16,8 +16,8 @@ public class Scheduling {
     @Column(name = "data")
     private LocalDate date;
 
-    @Column(name = "time")
-    private LocalTime time;
+    @Column(name = "horario")
+    private LocalTime hour;
 
     @Column(name = "ligar")
     private Boolean connected;
@@ -42,12 +42,12 @@ public class Scheduling {
         this.date = date;
     }
 
-    public LocalTime getTime() {
-        return time;
+    public LocalTime getHour() {
+        return hour;
     }
 
-    public void setTime(LocalTime time) {
-        this.time = time;
+    public void setHour(LocalTime hour) {
+        this.hour = hour;
     }
 
     public Boolean getConnected() {
