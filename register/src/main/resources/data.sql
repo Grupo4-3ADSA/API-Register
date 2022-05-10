@@ -97,4 +97,12 @@ insert into Registro (fk_equipamento, ligado, data) values (9, true, '2022-05-20
 insert into Registro (fk_equipamento, ligado, data) values (10, true, '2022-05-20 16:30:00');
 insert into Registro (fk_equipamento, ligado, data) values (11, true, '2022-05-20 16:30:00');
 
--- Tabela Register - Registro
+-- Tabela TemperatureSensor - SensorTemperatura
+insert into SensorTemperatura (temperatura, data, fk_equipamento) values (21.0 , '2022-05-20 10:30:00', 1);
+insert into SensorTemperatura (temperatura, data, fk_equipamento) values (21.0, '2022-05-20 10:35:00', 2);
+insert into SensorTemperatura (temperatura, data, fk_equipamento) values (20.0, '2022-05-20 10:35:00', 3);
+insert into SensorTemperatura (temperatura, data, fk_equipamento) values (19.0, '2022-05-20 17:45:00', 6);
+insert into SensorTemperatura (temperatura, data, fk_equipamento) values (21.0, '2022-05-20 17:35:00', 7);
+insert into SensorTemperatura (temperatura, data, fk_equipamento) values (20.0, '2022-05-20 18:36:00', 8);
+insert into SensorTemperatura (temperatura, data, fk_equipamento) values (19.0, '2022-05-20 18:35:00', 9);
+
