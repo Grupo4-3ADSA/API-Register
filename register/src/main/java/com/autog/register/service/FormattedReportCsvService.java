@@ -65,9 +65,7 @@ public class FormattedReportCsvService {
 
         }
         rv.setDate(seer.getBody().getItems().get(0).getMonth());
-
         rateValueRepository.save(rv);
-
         return ResponseEntity.status(200).body(seer);
     }
 
