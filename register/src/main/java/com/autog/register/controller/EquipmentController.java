@@ -8,6 +8,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
+import java.util.Map;
 
 @RestController
 @RequestMapping("/equipments")
@@ -22,7 +23,12 @@ public class EquipmentController {
     }
 
     @GetMapping
-    public ResponseEntity getEquipment() {
+    public ResponseEntity getEquipment(@RequestHeader Map<String,String> headers) {
+        headers.forEach((key,value) -> {
+            if (key == "idEmpresa") {
+                
+            }
+        });
         return service.getEquipment();
     }
 

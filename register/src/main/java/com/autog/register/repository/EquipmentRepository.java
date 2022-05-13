@@ -9,6 +9,10 @@ import javax.transaction.Transactional;
 
 public interface EquipmentRepository extends JpaRepository<Equipment, Integer> {
 
+//    Integer findByIdCompany(Integer id);
+    @Query("SELECT ")
+    Integer getEquipmentByCompany(Integer id);
+
     @Transactional
     @Modifying
     @Query("DELETE Equipment e WHERE e.idEquipment = ?1")
