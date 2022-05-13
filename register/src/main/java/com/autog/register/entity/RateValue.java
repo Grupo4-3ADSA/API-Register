@@ -5,6 +5,7 @@ import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.PastOrPresent;
 import java.time.LocalDate;
+import java.time.LocalDateTime;
 
 @Entity
 @Table(name = "ValorTarifa")
@@ -16,7 +17,7 @@ public class RateValue {
     private Integer idRateValue;
 
     @NotNull
-    @Column(name = "valorTarifa")
+    @Column(name = "valorTarifa_kwh")
     private Double rateValue;
 
     @Column(name = "bandeira")
@@ -24,7 +25,7 @@ public class RateValue {
 
     @PastOrPresent
     @Column(name = "date")
-    private LocalDate date;
+    private LocalDateTime date;
 
     public Integer getIdRateValue() {
         return idRateValue;
@@ -50,11 +51,11 @@ public class RateValue {
         this.flag = flag;
     }
 
-    public LocalDate getDate() {
+    public LocalDateTime getDate() {
         return date;
     }
 
-    public void setDate(LocalDate date) {
+    public void setDate(LocalDateTime date) {
         this.date = date;
     }
 }

@@ -1,5 +1,7 @@
 package com.autog.register.entity;
 
+import org.hibernate.validator.constraints.Length;
+
 import javax.persistence.*;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
@@ -34,6 +36,11 @@ public class Address {
     @NotBlank
     @Column(name = "uf")
     private String state;
+
+    @NotBlank
+    @Length(min = 8, max = 8)
+    @Column(name = "cep")
+    private String cep;
 
     @OneToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "fkPredio")

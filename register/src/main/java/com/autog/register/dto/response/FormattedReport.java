@@ -7,14 +7,14 @@ public class FormattedReport {
     private String nomeResponsavelEmpresa;
     private String razaoSocialEmpresa;
     private String cnpjEmpresa;
-    private Integer nPredio;
+//    private Integer nPredio;
     private String nomePredio;
     private String logradouroEndereco;
     private String numeroEndereco;
     private String cepEndereco;
-    private List<MonthlyConsumption> consumoMensal;
-    private Double totalKwm;
-    private Double totalValor;
+//    private List<MonthlyConsumption> consumoMensal;
+//    private Double totalKwm;
+//    private Double totalValor;
 
     public String getNomeResponsavelEmpresa() {
         return nomeResponsavelEmpresa;
@@ -40,13 +40,13 @@ public class FormattedReport {
         this.cnpjEmpresa = cnpjEmpresa;
     }
 
-    public Integer getnPredio() {
-        return nPredio;
-    }
-
-    public void setnPredio(Integer nPredio) {
-        this.nPredio = nPredio;
-    }
+//    public Integer getnPredio() {
+//        return nPredio;
+//    }
+//
+//    public void setnPredio(Integer nPredio) {
+//        this.nPredio = nPredio;
+//    }
 
     public String getNomePredio() {
         return nomePredio;
@@ -80,27 +80,27 @@ public class FormattedReport {
         this.cepEndereco = cepEndereco;
     }
 
-    public List<MonthlyConsumption> getConsumoMensal() {
-        return consumoMensal;
-    }
-
-    public void setConsumoMensal(List<MonthlyConsumption> consumoMensal) {
-        this.consumoMensal = consumoMensal;
-    }
-
-    public Double getTotalKwm() {
-        return totalKwm;
-    }
-
-    public void setTotalKwm(Double totalKwm) {
-        this.totalKwm = totalKwm;
-    }
-
-    public Double getTotalValor() {
-        return totalValor;
-    }
-
-    public void setTotalValor(Double totalValor) {
-        this.totalValor = totalValor;
-    }
+//    public List<MonthlyConsumption> getConsumoMensal() {
+//        return consumoMensal;
+//    }
+//
+//    public void setConsumoMensal(List<MonthlyConsumption> consumoMensal) {
+//        this.consumoMensal = consumoMensal;
+//    }
+//
+//    public Double getTotalKwm() {
+//        return totalKwm;
+//    }
+//
+//    public void setTotalKwm(Double totalKwm) {
+//        this.totalKwm = totalKwm;
+//    }
+//
+//    public Double getTotalValor() {
+//        return totalValor;
+//    }
+//
+//    public void setTotalValor(Double totalValor) {
+//        this.totalValor = totalValor;
+//    }
 }

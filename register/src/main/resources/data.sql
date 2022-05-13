@@ -20,11 +20,11 @@ insert into Predio (id_predio, nome, fk_empresa) values (251, 'Digital Building'
 
 
 -- Tabela Address - Endereco
-insert into Endereco (logradouro, numero, bairro, cidade, uf, fk_predio) values
-('Rua Tiugibe Inoue', 251, 'Cidade dos Bandeirantes', 'São Paulo', 'SP', 250);
+insert into Endereco (logradouro, numero, bairro, cidade, uf, cep, fk_predio) values
+('Rua Tiugibe Inoue', 251, 'Cidade dos Bandeirantes', 'São Paulo', 'SP', 05596060,250);
 
-insert into Endereco (logradouro, numero, bairro, cidade, uf, fk_predio) values
-('Rua Haddock Lobo', 595, 'Cerqueira César', 'São Paulo', 'SP', 251);
+insert into Endereco (logradouro, numero, bairro, cidade, uf, cep, fk_predio) values
+('Rua Haddock Lobo', 595, 'Cerqueira César', 'São Paulo', 'SP', 01414905, 251);
 
 -- Tabela Room - Sala
 insert into Sala (nome, andar, fk_predio) values ('Sala de reuniões', 2, 250);
