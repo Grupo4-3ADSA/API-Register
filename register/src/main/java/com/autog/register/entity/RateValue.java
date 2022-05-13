@@ -24,7 +24,7 @@ public class RateValue {
     private String flag;
 
     @PastOrPresent
-    @Column(name = "date")
+    @Column(name = "data")
     private LocalDateTime date;
 
     public Integer getIdRateValue() {

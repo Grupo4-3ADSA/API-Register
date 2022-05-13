@@ -106,3 +106,9 @@ insert into sensor_temperatura (temperatura, data, fk_equipamento) values (21.0,
 insert into sensor_temperatura (temperatura, data, fk_equipamento) values (20.0, '2022-05-20 18:36:00', 8);
 insert into sensor_temperatura (temperatura, data, fk_equipamento) values (19.0, '2022-05-20 18:35:00', 9);
 
+-- Tabela RateValue - ValorTarifa
+insert into valor_tarifa (bandeira, valor_tarifa_kwh, data) values ('Escassez Hídrica', 14.20, '2022-01-01 00:00:00');
+insert into valor_tarifa (bandeira, valor_tarifa_kwh, data) values ('Amarela', 1.87, '2022-02-01 00:00:00');
+insert into valor_tarifa (bandeira, valor_tarifa_kwh, data) values ('Vermelha - Patamar 1', 3.97, '2022-03-01 00:00:00');
+insert into valor_tarifa (bandeira, valor_tarifa_kwh, data) values ('Vermelha - Patamar 2', 9.49, '2022-04-01 00:00:00');
+insert into valor_tarifa (bandeira, valor_tarifa_kwh, data) values ('Verde', 0.0, '2022-05-01 00:00:00'      );

@@ -43,7 +43,7 @@ public class FormattedReportCsvService {
         Integer bandeira = seer.getBody().getItems().get(0).getFlagType();
         switch (bandeira) {
             case 0:
-                rv.setFlag("Azul");
+                rv.setFlag("Verde");
                 rv.setRateValue(0.0);
                 break;
             case 1:
@@ -60,7 +60,7 @@ public class FormattedReportCsvService {
                 break;
             case 4:
                 rv.setFlag("Escassez Hídrica");
-                rv.setRateValue(9.49);
+                rv.setRateValue(14.20);
                 break;
 
         }
