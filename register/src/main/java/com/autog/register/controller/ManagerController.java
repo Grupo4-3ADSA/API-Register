@@ -1,6 +1,6 @@
 package com.autog.register.controller;
 
-import com.autog.register.entity.Manager;
+import com.autog.register.entity.Company;
 import com.autog.register.service.ManagerService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -16,7 +16,7 @@ public class ManagerController {
     private ManagerService service;
 
     @PostMapping
-    public ResponseEntity registerEquipment(@RequestBody @Valid Manager newManager) {
+    public ResponseEntity registerEquipment(@RequestBody @Valid Company.Manager newManager) {
         return service.registerEquipment(newManager);
     }
 
@@ -26,7 +26,7 @@ public class ManagerController {
     }
 
     @PatchMapping("/{id}")
-    public ResponseEntity editManager(@PathVariable Integer id, @RequestBody @Valid Manager request) {
+    public ResponseEntity editManager(@PathVariable Integer id, @RequestBody @Valid Company.Manager request) {
         return service.editManager(id, request);
     }
 

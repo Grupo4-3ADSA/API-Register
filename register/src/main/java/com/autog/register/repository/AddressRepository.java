@@ -1,13 +1,13 @@
 package com.autog.register.repository;
 
-import com.autog.register.entity.Address;
+import com.autog.register.entity.Company;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Modifying;
 import org.springframework.data.jpa.repository.Query;
 
 import javax.transaction.Transactional;
 
-public interface AddressRepository extends JpaRepository<Address, Integer> {
+public interface AddressRepository extends JpaRepository<Company.Address, Integer> {
 
     @Transactional
     @Modifying

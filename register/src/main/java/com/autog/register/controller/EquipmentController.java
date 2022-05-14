@@ -1,14 +1,13 @@
 package com.autog.register.controller;
 
 import com.autog.register.dto.request.EquipmentRequest;
-import com.autog.register.entity.Equipment;
+import com.autog.register.entity.Company;
 import com.autog.register.service.EquipmentService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
-import java.util.Map;
 
 @RestController
 @RequestMapping("/equipments")
@@ -18,18 +17,13 @@ public class EquipmentController {
     private EquipmentService service;
 
     @PostMapping
-    public ResponseEntity registerEquipment(@RequestBody @Valid Equipment newEquipment) {
+    public ResponseEntity registerEquipment(@RequestBody @Valid Company.Equipment newEquipment) {
         return service.registerEquipment(newEquipment);
     }
 
-    @GetMapping
-    public ResponseEntity getEquipment(@RequestHeader Map<String,String> headers) {
-        headers.forEach((key,value) -> {
-            if (key == "idEmpresa") {
-                
-            }
-        });
-        return service.getEquipment();
+    @GetMapping("/{idCompany}")
+    public ResponseEntity getEquipment(@PathVariable Integer idCompany) {
+        return service.getEquipment(idCompany);
     }
 
     @PatchMapping("/{id}")

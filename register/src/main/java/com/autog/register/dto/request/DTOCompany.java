@@ -1,13 +1,12 @@
 package com.autog.register.dto.request;
 
 import com.autog.register.entity.Company;
-import com.autog.register.entity.Manager;
 
 import java.util.List;
 
 public class DTOCompany {
     private Company company;
-    private List<Manager> managers;
+    private List<Company.Manager> managers;
 
     public Company getCompany() {
         return company;
@@ -17,11 +16,11 @@ public class DTOCompany {
         this.company = company;
     }
 
-    public List<Manager> getManagers() {
+    public List<Company.Manager> getManagers() {
         return managers;
     }
 
-    public void setManagers(List<Manager> managers) {
+    public void setManagers(List<Company.Manager> managers) {
         this.managers = managers;
     }
 }

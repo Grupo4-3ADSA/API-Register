@@ -1,6 +1,6 @@
 package com.autog.register.controller;
 
-import com.autog.register.entity.Building;
+import com.autog.register.entity.Company;
 import com.autog.register.service.BuildingService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -19,7 +19,7 @@ public class BuildingController {
     private BuildingService service;
 
     @PostMapping
-    public ResponseEntity registerBuilding(@RequestBody @Valid Building newBuilding) {
+    public ResponseEntity registerBuilding(@RequestBody @Valid Company.Building newBuilding) {
         return service.registerBuilding(newBuilding);
     }
 }
