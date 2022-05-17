@@ -22,24 +22,24 @@ public class ManagerService {
     public ResponseEntity getManagers() {
         List<Company.Manager> managers = repository.findAll();
         if (managers.isEmpty()) {
-            return ResponseEntity.status(204).build();
+            return ResponseEntity.noContent().build();
         }
-        return ResponseEntity.status(200).body(managers);
+        return ResponseEntity.ok(managers);
     }
 
     public ResponseEntity editManager(Integer id, Company.Manager request) {
         if (repository.existsById(id)) {
             repository.updateManager(id, request.getName(), request.getLogin(), request.getPassword());
-            return ResponseEntity.status(200).build();
+            return ResponseEntity.ok().build();
         }
-        return ResponseEntity.status(404).build();
+        return ResponseEntity.notFound().build();
     }
 
     public ResponseEntity deleteManagerById(Integer id) {
         if (repository.existsById(id)) {
             repository.deleteManager(id);
-            return ResponseEntity.status(200).build();
+            return ResponseEntity.ok().build();
         }
-        return ResponseEntity.status(404).build();
+        return ResponseEntity.notFound().build();
     }
 }

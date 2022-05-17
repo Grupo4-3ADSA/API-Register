@@ -24,24 +24,24 @@ public class EquipmentService {
     public ResponseEntity getEquipment(Integer idCompany) {
         List<Equipment> equipments = repository.getEquipmentByCompany(idCompany);
         if (equipments.isEmpty()) {
-            return ResponseEntity.status(204).build();
+            return ResponseEntity.noContent().build();
         }
-        return ResponseEntity.status(200).body(equipments);
+        return ResponseEntity.ok(equipments);
     }
 
     public ResponseEntity editEquipment(Integer id, EquipmentRequest request) {
         if (repository.existsById(id)) {
             repository.updateEquipment(id, request.getName());
-            return ResponseEntity.status(200).build();
+            return ResponseEntity.ok().build();
         }
-        return ResponseEntity.status(404).build();
+        return ResponseEntity.notFound().build();
     }
 
     public ResponseEntity deleteEquipmentById(Integer id) {
         if (repository.existsById(id)) {
             repository.deleteEquipment(id);
-            return ResponseEntity.status(200).build();
+            return ResponseEntity.ok().build();
         }
-        return ResponseEntity.status(404).build();
+        return ResponseEntity.notFound().build();
     }
 }

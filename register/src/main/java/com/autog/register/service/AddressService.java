@@ -26,8 +26,8 @@ public class AddressService {
                     request.getDistrict(),
                     request.getCity(),
                     request.getState());
-            return ResponseEntity.status(200).build();
+            return ResponseEntity.ok().build();
         }
-        return ResponseEntity.status(404).build();
+        return ResponseEntity.notFound().build();
     }
 }

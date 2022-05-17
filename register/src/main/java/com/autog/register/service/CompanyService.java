@@ -23,17 +23,17 @@ public class CompanyService {
     public ResponseEntity getCompanies() {
         List<Company> companies = repository.findAll();
         if (companies.isEmpty()) {
-            return ResponseEntity.status(204).build();
+            return ResponseEntity.noContent().build();
         }
-        return ResponseEntity.status(200).body(companies);
+        return ResponseEntity.ok(companies);
     }
 
     public ResponseEntity deleteCompanyById(Integer id) {
         if (repository.existsById(id)) {
             repository.deleteCompany(id);
-            return ResponseEntity.status(200).build();
+            return ResponseEntity.ok().build();
         }
-        return ResponseEntity.status(404).build();
+        return ResponseEntity.notFound().build();
     }
 
     public ResponseEntity updateCompany(Integer id, CompanyUpdateData request) {
@@ -44,8 +44,8 @@ public class CompanyService {
                     request.getCnpj(),
                     request.getTelephone(),
                     request.getEmail());
-            return ResponseEntity.status(200).build();
+            return ResponseEntity.ok().build();
         }
-        return ResponseEntity.status(404).build();
+        return ResponseEntity.notFound().build();
     }
 }
