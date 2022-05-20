@@ -10,7 +10,7 @@ import java.util.List;
 
 public interface EquipmentRepository extends JpaRepository<Equipment, Integer> {
 
-    @Query("SELECT r FROM Equipment r WHERE room.idRoom = ?1")
+    @Query("SELECT e FROM Equipment e WHERE clnBox.idCLNBox = ?1")
     List<Equipment> getEquipmentByCompany(Integer idCompany);
 
     @Transactional

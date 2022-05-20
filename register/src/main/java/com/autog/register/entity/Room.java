@@ -28,8 +28,7 @@ public class Room {
     private Building building;
 
     @OneToMany(mappedBy = "room")
-    private List<Equipment> equipment = new ArrayList();
-
+    private List<CLNBox> clnBoxes = new ArrayList();
 
     public Integer getIdRoom() {
         return idRoom;

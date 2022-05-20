@@ -26,8 +26,8 @@ public class Equipment {
     private Integer lifespan;
 
     @ManyToOne
-    @JoinColumn(name = "fkSala", referencedColumnName = "idSala")
-    private Room room;
+    @JoinColumn(name = "fkCLNBox", referencedColumnName = "idCLNBox")
+    private CLNBox clnBox;
 
     public Integer getIdEquipment() {
         return idEquipment;
@@ -59,13 +59,5 @@ public class Equipment {
 
     public void setLifespan(Integer lifespan) {
         this.lifespan = lifespan;
-    }
-
-    public Room getRoom() {
-        return room;
-    }
-
-    public void setRoom(Room room) {
-        this.room = room;
     }
 }
