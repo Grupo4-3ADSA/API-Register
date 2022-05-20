@@ -1,7 +1,6 @@
 package com.autog.register.service;
 
 import com.autog.register.dto.request.EquipmentRequest;
-import com.autog.register.entity.Company;
 import com.autog.register.entity.Equipment;
 import com.autog.register.repository.EquipmentRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -16,7 +15,7 @@ public class EquipmentService {
     @Autowired
     private EquipmentRepository repository;
 
-    public ResponseEntity registerEquipment(Company.Equipment newEquipment) {
+    public ResponseEntity registerEquipment(Equipment newEquipment) {
         repository.save(newEquipment);
         return ResponseEntity.status(201).build();
     }

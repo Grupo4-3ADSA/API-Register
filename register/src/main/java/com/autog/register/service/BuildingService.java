@@ -1,5 +1,6 @@
 package com.autog.register.service;
 
+import com.autog.register.entity.Building;
 import com.autog.register.entity.Company;
 import com.autog.register.repository.BuildingRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -12,7 +13,7 @@ public class BuildingService {
     @Autowired
     private BuildingRepository repository;
 
-    public ResponseEntity registerBuilding(Company.Building newBuilding) {
+    public ResponseEntity registerBuilding(Building newBuilding) {
         repository.save(newBuilding);
         return ResponseEntity.status(201).build();
     }

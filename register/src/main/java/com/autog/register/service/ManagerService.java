@@ -1,6 +1,7 @@
 package com.autog.register.service;
 
 import com.autog.register.entity.Company;
+import com.autog.register.entity.Manager;
 import com.autog.register.repository.ManagerRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -14,20 +15,20 @@ public class ManagerService {
     @Autowired
     private ManagerRepository repository;
 
-    public ResponseEntity registerEquipment(Company.Manager newManager) {
+    public ResponseEntity registerEquipment(Manager newManager) {
         repository.save(newManager);
         return ResponseEntity.status(201).build();
     }
 
     public ResponseEntity getManagers() {
-        List<Company.Manager> managers = repository.findAll();
+        List<Manager> managers = repository.findAll();
         if (managers.isEmpty()) {
             return ResponseEntity.noContent().build();
         }
         return ResponseEntity.ok(managers);
     }
 
-    public ResponseEntity editManager(Integer id, Company.Manager request) {
+    public ResponseEntity editManager(Integer id, Manager request) {
         if (repository.existsById(id)) {
             repository.updateManager(id, request.getName(), request.getLogin(), request.getPassword());
             return ResponseEntity.ok().build();

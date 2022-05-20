@@ -1,13 +1,13 @@
 package com.autog.register.repository;
 
-import com.autog.register.entity.Company;
+import com.autog.register.entity.Manager;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Modifying;
 import org.springframework.data.jpa.repository.Query;
 
 import javax.transaction.Transactional;
 
-public interface ManagerRepository extends JpaRepository<Company.Manager, Integer> {
+public interface ManagerRepository extends JpaRepository<Manager, Integer> {
 
     @Transactional
     @Modifying

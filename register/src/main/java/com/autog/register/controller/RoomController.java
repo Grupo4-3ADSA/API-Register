@@ -1,7 +1,7 @@
 package com.autog.register.controller;
 
 import com.autog.register.dto.request.RoomRequest;
-import com.autog.register.entity.Company;
+import com.autog.register.entity.Room;
 import com.autog.register.service.RoomService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -17,7 +17,7 @@ public class RoomController {
     private RoomService service;
     
     @PostMapping
-    public ResponseEntity registerRoom(@RequestBody @Valid Company.Room newRoom) {
+    public ResponseEntity registerRoom(@RequestBody @Valid Room newRoom) {
         return service.registerRoom(newRoom);
     }
     

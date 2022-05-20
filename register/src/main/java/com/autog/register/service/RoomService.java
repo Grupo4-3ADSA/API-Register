@@ -3,6 +3,7 @@ package com.autog.register.service;
 import com.autog.register.dto.request.RoomRequest;
 import com.autog.register.dto.response.RoomResponse;
 import com.autog.register.entity.Company;
+import com.autog.register.entity.Room;
 import com.autog.register.repository.RoomRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -17,7 +18,7 @@ public class RoomService {
     @Autowired
     private RoomRepository repository;
 
-    public ResponseEntity registerRoom(Company.Room newRoom) {
+    public ResponseEntity registerRoom(Room newRoom) {
         repository.save(newRoom);
         return ResponseEntity.status(201).build();
     }

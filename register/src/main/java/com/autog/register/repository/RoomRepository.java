@@ -1,7 +1,6 @@
 package com.autog.register.repository;
 
 import com.autog.register.dto.response.RoomResponse;
-import com.autog.register.entity.Company;
 import com.autog.register.entity.Room;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Modifying;
@@ -10,7 +9,7 @@ import org.springframework.data.jpa.repository.Query;
 import javax.transaction.Transactional;
 import java.util.List;
 
-public interface RoomRepository extends JpaRepository<Company.Room, Integer> {
+public interface RoomRepository extends JpaRepository<Room, Integer> {
 
     @Query("SELECT new com.autog.register.dto.response.RoomResponse(r.idRoom, r.name, r.floor) FROM Room r")
     List<RoomResponse> selectedList();

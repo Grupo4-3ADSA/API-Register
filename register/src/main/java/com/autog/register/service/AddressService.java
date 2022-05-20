@@ -1,6 +1,6 @@
 package com.autog.register.service;
 
-import com.autog.register.entity.Company;
+import com.autog.register.entity.Address;
 import com.autog.register.repository.AddressRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -12,12 +12,12 @@ public class AddressService {
     @Autowired
     private AddressRepository repository;
 
-    public ResponseEntity registerAddress(Company.Address newAddress) {
+    public ResponseEntity registerAddress(Address newAddress) {
         repository.save(newAddress);
         return ResponseEntity.status(201).build();
     }
 
-    public ResponseEntity updateAddress(Integer id, Company.Address request) {
+    public ResponseEntity updateAddress(Integer id, Address request) {
         if (repository.existsById(id)) {
             repository.updateAddress(
                     id,
