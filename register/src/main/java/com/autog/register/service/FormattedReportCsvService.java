@@ -71,7 +71,7 @@ public class FormattedReportCsvService {
         // Bloco try catch para gravar o arquivo
         try {
             FormattedReport corpo1 = repository.corpoUm(idPredio);
-            saida.format("%s;%s; Bandeira - %s\n\n", "05/2022", "Amarela");
+            saida.format("%s;%s;Bandeira - %s\n\n", "AUTG","05/2022", "Amarela");
 
             saida.format("%s;%s;%s\n", "Nome responsavel", "Razao Social", "CNPJ");
             saida.format("%s;%s;%s\n\n", corpo1.getNameManager(), corpo1.getCorporateName(),
@@ -93,6 +93,10 @@ public class FormattedReportCsvService {
                 MonthlyConsumption mc = corpo2.getElemento(i);
                 saida.format("%s;%d;\n", mc.getName(), mc.getFloor());
             }
+
+            saida.format("\n%s;%s\n", "Resumo", "R$");
+            saida.format("%s\n", "Total - kwm:");
+            saida.format("%s\n", "Total - R$:");
         } catch (FormatterClosedException erro) {
             System.out.println("Erro ao gravar o arquivo");
             deuRuim = true;
