@@ -4,90 +4,56 @@ import java.util.List;
 
 public class FormattedReport {
 
-    private String nomeResponsavelEmpresa;
-    private String razaoSocialEmpresa;
-    private String cnpjEmpresa;
-//    private Integer nPredio;
-    private String nomePredio;
-    private String logradouroEndereco;
-    private String numeroEndereco;
-    private String cepEndereco;
-//    private List<MonthlyConsumption> consumoMensal;
+    private String nameManager;
+    private String corporateName;
+    private String cnpj;
+    private String nameBuilding;
+    private String publicPlace;
+    private Integer number;
+    private String cep;
 //    private Double totalKwm;
 //    private Double totalValor;
 
-    public String getNomeResponsavelEmpresa() {
-        return nomeResponsavelEmpresa;
+    public FormattedReport(String nameManager, String corporateName, String cnpj, String nameBuilding, String publicPlace, Integer number, String cep) {
+        this.nameManager = nameManager;
+        this.corporateName = corporateName;
+        this.cnpj = cnpj;
+        this.nameBuilding = nameBuilding;
+        this.publicPlace = publicPlace;
+        this.number = number;
+        this.cep = cep;
     }
 
-    public void setNomeResponsavelEmpresa(String nomeResponsavelEmpresa) {
-        this.nomeResponsavelEmpresa = nomeResponsavelEmpresa;
+    public String getNameManager() {
+        return nameManager;
     }
 
-    public String getRazaoSocialEmpresa() {
-        return razaoSocialEmpresa;
+    public String getCorporateName() {
+        return corporateName;
     }
 
-    public void setRazaoSocialEmpresa(String razaoSocialEmpresa) {
-        this.razaoSocialEmpresa = razaoSocialEmpresa;
+    public String getCnpj() {
+        return cnpj;
     }
 
-    public String getCnpjEmpresa() {
-        return cnpjEmpresa;
+    public String getNameBuilding() {
+        return nameBuilding;
     }
 
-    public void setCnpjEmpresa(String cnpjEmpresa) {
-        this.cnpjEmpresa = cnpjEmpresa;
+    public String getPublicPlace() {
+        return publicPlace;
     }
 
-//    public Integer getnPredio() {
-//        return nPredio;
-//    }
-//
-//    public void setnPredio(Integer nPredio) {
-//        this.nPredio = nPredio;
-//    }
-
-    public String getNomePredio() {
-        return nomePredio;
+    public Integer getNumber() {
+        return number;
     }
 
-    public void setNomePredio(String nomePredio) {
-        this.nomePredio = nomePredio;
+    public String getCep() {
+        return cep;
     }
 
-    public String getLogradouroEndereco() {
-        return logradouroEndereco;
-    }
 
-    public void setLogradouroEndereco(String logradouroEndereco) {
-        this.logradouroEndereco = logradouroEndereco;
-    }
-
-    public String getNumeroEndereco() {
-        return numeroEndereco;
-    }
-
-    public void setNumeroEndereco(String numeroEndereco) {
-        this.numeroEndereco = numeroEndereco;
-    }
-
-    public String getCepEndereco() {
-        return cepEndereco;
-    }
-
-    public void setCepEndereco(String cepEndereco) {
-        this.cepEndereco = cepEndereco;
-    }
-
-//    public List<MonthlyConsumption> getConsumoMensal() {
-//        return consumoMensal;
-//    }
-//
-//    public void setConsumoMensal(List<MonthlyConsumption> consumoMensal) {
-//        this.consumoMensal = consumoMensal;
-//    }
-//
+    //
 //    public Double getTotalKwm() {
 //        return totalKwm;
 //    }

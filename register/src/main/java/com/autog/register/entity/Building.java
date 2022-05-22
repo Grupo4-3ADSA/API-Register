@@ -2,6 +2,8 @@ package com.autog.register.entity;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotBlank;
+import java.util.ArrayList;
+import java.util.List;
 
 @Entity
 @Table(name = "Predio")
@@ -12,34 +14,35 @@ public class Building {
     private Integer idBuilding;
 
     @NotBlank
-    @Column(name = "nome")
-    private String name;
+    @Column(name = "nomePredio")
+    private String nameBuilding;
 
     @ManyToOne
-    @JoinColumn(name = "fkEmpresa", referencedColumnName = "idEmpresa")
+    @JoinColumn(name = "fkCompany", referencedColumnName = "idEmpresa")
     private Company company;
 
-//    @OneToOne(mappedBy = "building")
-//    private Address address;
 
-//    @OneToMany(mappedBy = "building")
-//    private List<Room> rooms = new ArrayList();
+    @OneToOne(mappedBy = "building")
+    private Address address;
 
-//    public List<Room> getRooms() {
-//        return rooms;
-//    }
-//
-//    public void setRooms(List<Room> rooms) {
-//        this.rooms = rooms;
-//    }
+    @OneToMany(mappedBy = "building")
+    private List<Room> rooms = new ArrayList();
 
-//    public Address getAddress() {
-//        return address;
-//    }
-//
-//    public void setAddress(Address address) {
-//        this.address = address;
-//    }
+    public List<Room> getRooms() {
+        return rooms;
+    }
+
+    public void setRooms(List<Room> rooms) {
+        this.rooms = rooms;
+    }
+
+    public Address getAddress() {
+        return address;
+    }
+
+    public void setAddress(Address address) {
+        this.address = address;
+    }
 
     public Integer getIdBuilding() {
         return idBuilding;
@@ -49,12 +52,12 @@ public class Building {
         this.idBuilding = idBuilding;
     }
 
-    public String getName() {
-        return name;
+    public String getNameBuilding() {
+        return nameBuilding;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setNameBuilding(String name) {
+        this.nameBuilding = nameBuilding;
     }
 
     public Company getCompany() {

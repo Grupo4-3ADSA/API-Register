@@ -2,49 +2,54 @@ package com.autog.register.dto.response;
 
 public class MonthlyConsumption {
 
-    private String sala;
-    private Integer andar;
-    private Double consumoKwm;
-    private String bandeira;
-    private Double preco;
+    private String name;
+    private Integer floor;
+//    private Double consumoKwm;
+//    private Double preco;
 
-    public String getSala() {
-        return sala;
+    public MonthlyConsumption(String name, Integer floor) {
+        this.name = name;
+        this.floor = floor;
     }
 
-    public void setSala(String sala) {
-        this.sala = sala;
+    public String getName() {
+        return name;
     }
 
-    public Integer getAndar() {
-        return andar;
+    public void setName(String name) {
+        this.name = name;
     }
 
-    public void setAndar(Integer andar) {
-        this.andar = andar;
+    public Integer getFloor() {
+        return floor;
     }
 
-    public Double getConsumoKwm() {
-        return consumoKwm;
+    public void setFloor(Integer floor) {
+        this.floor = floor;
     }
 
-    public void setConsumoKwm(Double consumoKwm) {
-        this.consumoKwm = consumoKwm;
-    }
+//    public Double getConsumoKwm() {
+//        return consumoKwm;
+//    }
+//
+//    public void setConsumoKwm(Double consumoKwm) {
+//        this.consumoKwm = consumoKwm;
+//    }
+//
+//    public Double getPreco() {
+//        return preco;
+//    }
+//
+//    public void setPreco(Double preco) {
+//        this.preco = preco;
+//    }
 
-    public String getBandeira() {
-        return bandeira;
-    }
 
-    public void setBandeira(String bandeira) {
-        this.bandeira = bandeira;
-    }
-
-    public Double getPreco() {
-        return preco;
-    }
-
-    public void setPreco(Double preco) {
-        this.preco = preco;
+    @Override
+    public String toString() {
+        return "MonthlyConsumption{" +
+                "name='" + name + '\'' +
+                ", floor=" + floor +
+                '}';
     }
 }

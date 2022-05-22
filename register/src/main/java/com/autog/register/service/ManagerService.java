@@ -29,7 +29,7 @@ public class ManagerService {
 
     public ResponseEntity editManager(Integer id, Manager request) {
         if (repository.existsById(id)) {
-            repository.updateManager(id, request.getName(), request.getLogin(), request.getPassword());
+            repository.updateManager(id, request.getNameManager(), request.getLogin(), request.getPassword());
             return ResponseEntity.status(200).build();
         }
         return ResponseEntity.status(404).build();

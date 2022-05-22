@@ -22,7 +22,7 @@ public class Room {
     private Integer floor;
 
     @ManyToOne
-    @JoinColumn(name = "fkPredio", referencedColumnName = "idPredio")
+    @JoinColumn(name = "fkBuilding", referencedColumnName = "idPredio")
     private Building building;
 
     @OneToOne(cascade = CascadeType.ALL)

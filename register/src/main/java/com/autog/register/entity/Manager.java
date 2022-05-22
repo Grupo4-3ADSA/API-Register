@@ -13,8 +13,8 @@ public class Manager {
     private Integer idManager;
 
     @NotBlank
-    @Column(name = "nome")
-    private String name;
+    @Column(name = "nomeGestor")
+    private String nameManager;
 
     @NotBlank
     @Column(name = "login")
@@ -24,18 +24,18 @@ public class Manager {
     @Column(name = "senha")
     private String password;
 
-    //@ManyToOne
-    @JoinColumn(name = "fkEmpresa", referencedColumnName = "idEmpresa")
-    private Integer fkEmpresa;
-//    private Company company;
+    @ManyToOne
+    @JoinColumn(name = "fkCompany", referencedColumnName = "idEmpresa")
+    private Company company;
+//    private Integer fkCompany;
 
-    public Integer getFkCompany() {
-        return fkEmpresa;
-    }
-
-    public void setFkCompany(Integer fkCompany) {
-        this.fkEmpresa = fkCompany;
-    }
+//    public Integer getFkCompany() {
+//        return fkCompany;
+//    }
+//
+//    public void setFkCompany(Integer fkCompany) {
+//        this.fkCompany = fkCompany;
+//    }
 
     public Integer getIdManager() {
         return idManager;
@@ -45,12 +45,12 @@ public class Manager {
         this.idManager = idManager;
     }
 
-    public String getName() {
-        return name;
+    public String getNameManager() {
+        return nameManager;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setNameManager(String name) {
+        this.nameManager = nameManager;
     }
 
     public String getLogin() {
@@ -69,11 +69,11 @@ public class Manager {
         this.password = password;
     }
 
-  //  public Company getCompany() {
-  //     return company;
-  //  }
+    public Company getCompany() {
+       return company;
+    }
 
-   // public void setCompany(Company company) {
-    //    this.company = company;
-   // }
+    public void setCompany(Company company) {
+        this.company = company;
+    }
 }

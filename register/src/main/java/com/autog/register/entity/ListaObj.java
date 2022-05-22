@@ -11,7 +11,7 @@ public class ListaObj<T> {
     }
 
 
-    public void adicona(T valor) {
+    public void adiciona(T valor) {
         if (nroElem < vetor.length) {
             vetor[nroElem] = valor;
             nroElem++;

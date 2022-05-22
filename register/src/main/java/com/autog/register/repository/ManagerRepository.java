@@ -16,6 +16,6 @@ public interface ManagerRepository extends JpaRepository<Manager, Integer> {
 
     @Transactional
     @Modifying
-    @Query("UPDATE Manager m SET m.name = ?2, m.login = ?3, m.password = ?4 WHERE m.idManager = ?1")
+    @Query("UPDATE Manager m SET m.nameManager = ?2, m.login = ?3, m.password = ?4 WHERE m.idManager = ?1")
     void updateManager(Integer id, String name, String login, String password);
 }

@@ -46,8 +46,8 @@ public class Company {
     @OneToMany(mappedBy = "company")
     private List<Building> buildings = new ArrayList();
 
-  //  @OneToMany(mappedBy = "company")
-  //  private List<Manager> managers = new ArrayList();
+    @OneToMany(mappedBy = "company")
+    private List<Manager> managers = new ArrayList();
 
     public Integer getIdCompany() {
         return idCompany;
