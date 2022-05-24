@@ -6,8 +6,12 @@ import org.springframework.data.jpa.repository.Modifying;
 import org.springframework.data.jpa.repository.Query;
 
 import javax.transaction.Transactional;
+import java.util.List;
 
 public interface EquipmentRepository extends JpaRepository<Equipment, Integer> {
+
+    @Query("SELECT e FROM Equipment e WHERE clnBox.idCLNBox = ?1")
+    List<Equipment> getEquipmentByCompany(Integer idCompany);
 
     @Transactional
     @Modifying

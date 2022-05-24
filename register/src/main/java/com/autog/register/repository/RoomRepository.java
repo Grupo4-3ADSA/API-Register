@@ -14,6 +14,9 @@ public interface RoomRepository extends JpaRepository<Room, Integer> {
     @Query("SELECT new com.autog.register.dto.response.RoomResponse(r.idRoom, r.name, r.floor) FROM Room r")
     List<RoomResponse> selectedList();
 
+    @Query("SELECT r FROM Room r JOIN Company c WHERE c.idCompany = ?1")
+    List<Room> getRoomByCompany(Integer idCompany);
+
     @Transactional
     @Modifying
     @Query("DELETE Room r WHERE r.idRoom = ?1")

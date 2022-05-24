@@ -42,8 +42,8 @@ public class Equipment {
     private Integer door;
 
     @ManyToOne
-    @JoinColumn(name = "fkClnBox", referencedColumnName = "idClnBox")
-    private ClnBox clnBox;
+    @JoinColumn(name = "idCLNBox", referencedColumnName = "idCLNBox")
+    private CLNBox clnBox;
 
     public Integer getIdEquipment() {
         return idEquipment;
@@ -77,23 +77,4 @@ public class Equipment {
         this.lifespan = lifespan;
     }
 
-    public String getType() {
-        return type;
-    }
-
-    public Integer getPotency() {
-        return potency;
-    }
-
-    public Integer getQtdEquipment() {
-        return qtdEquipment;
-    }
-
-    public Integer getDoor() {
-        return door;
-    }
-
-    public ClnBox getClnBox() {
-        return clnBox;
-    }
 }

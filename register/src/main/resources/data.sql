@@ -49,38 +49,38 @@ insert into CLNBox (qr_code, ip, fk_sala) values ('1-box-faculdade-sala-1a', '3.
 insert into CLNBox (qr_code, ip, fk_sala) values ('2-box-faculdade-sala-1b', '206.131.15.178', 4);
 
 -- Tabela Equipment - Equipamento
-insert into Equipamento (nome, tipo, instalacao, vida_util, potencia, qtd_equipamento, porta, fk_cln_box)
+insert into Equipamento (nome, tipo, instalacao, vida_util, potencia, qtd_equipamento, porta, idCLNBox)
 values ('Springer Midea Inverter 12.000 Btus','Ar-condicionado', '2022-03-25', 3650,
 220, 1, 1, 1);
-insert into Equipamento (nome, tipo, instalacao, vida_util, potencia, qtd_equipamento, porta, fk_cln_box)
+insert into Equipamento (nome, tipo, instalacao, vida_util, potencia, qtd_equipamento, porta, idCLNBox)
 values ('Springer Midea Inverter 12.000 Btus','Ar-condicionado', '2022-03-25', 3650,
 220, 2, 5, 2);
-insert into Equipamento (nome, tipo, instalacao, vida_util, potencia, qtd_equipamento, porta, fk_cln_box)
+insert into Equipamento (nome, tipo, instalacao, vida_util, potencia, qtd_equipamento, porta, idCLNBox)
 values ('Springer Midea Inverter 12.000 Btus','Ar-condicionado', '2022-03-25', 3650,
 220, 2, 5, 2);
-insert into Equipamento (nome, tipo, instalacao, vida_util, potencia, qtd_equipamento, porta, fk_cln_box)
+insert into Equipamento (nome, tipo, instalacao, vida_util, potencia, qtd_equipamento, porta, idCLNBox)
 values ('Lampada LED Philips','Conjunto de Lampadas', '2022-03-25', 2000,
 220, 4, 1, 1);
-insert into Equipamento (nome, tipo, instalacao, vida_util, potencia, qtd_equipamento, porta, fk_cln_box)
+insert into Equipamento (nome, tipo, instalacao, vida_util, potencia, qtd_equipamento, porta, idCLNBox)
 values ('Lampada LED Philips','Conjunto de Lampadas', '2022-03-25', 2000,
 220, 12, 5, 2);
 
-insert into Equipamento (nome, tipo, instalacao, vida_util, potencia, qtd_equipamento, porta, fk_cln_box)
+insert into Equipamento (nome, tipo, instalacao, vida_util, potencia, qtd_equipamento, porta, idCLNBox)
 values ('Split LG Dual Inverter Voice ARTCOOL UV Nano','Ar-condicionado', '2022-03-01', 3650,
 220, 2, 1, 3);
-insert into Equipamento (nome, tipo, instalacao, vida_util, potencia, qtd_equipamento, porta, fk_cln_box)
+insert into Equipamento (nome, tipo, instalacao, vida_util, potencia, qtd_equipamento, porta, idCLNBox)
 values ('Split LG Dual Inverter Voice ARTCOOL UV Nano','Ar-condicionado', '2022-03-01', 3650,
 220, 2, 5, 3);
-insert into Equipamento (nome, tipo, instalacao, vida_util, potencia, qtd_equipamento, porta, fk_cln_box)
+insert into Equipamento (nome, tipo, instalacao, vida_util, potencia, qtd_equipamento, porta, idCLNBox)
 values ('Split LG Dual Inverter Voice ARTCOOL UV Nano','Ar-condicionado', '2022-03-01', 3650,
 220, 2, 1, 4);
-insert into Equipamento (nome, tipo, instalacao, vida_util, potencia, qtd_equipamento, porta, fk_cln_box)
+insert into Equipamento (nome, tipo, instalacao, vida_util, potencia, qtd_equipamento, porta, idCLNBox)
 values ('Split LG Dual Inverter Voice ARTCOOL UV Nano','Ar-condicionado', '2022-03-01', 3650,
 220, 2, 5, 4);
 
-insert into Equipamento (nome, tipo, instalacao, vida_util, potencia, qtd_equipamento, porta, fk_cln_box)
+insert into Equipamento (nome, tipo, instalacao, vida_util, potencia, qtd_equipamento, porta, idCLNBox)
 values ('Lampada LED Philips','Conjunto de Lampadas', '2022-03-01', 2000, 220, 20, 5, 3);
-insert into Equipamento (nome, tipo, instalacao, vida_util, potencia, qtd_equipamento, porta, fk_cln_box)
+insert into Equipamento (nome, tipo, instalacao, vida_util, potencia, qtd_equipamento, porta, idCLNBox)
 values ('Lampada LED Philips','Conjunto de Lampadas', '2022-03-01', 2000, 220, 20, 1, 4);
 
 -- Tabela Register - Registro

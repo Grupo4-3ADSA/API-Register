@@ -3,6 +3,8 @@ package com.autog.register.entity;
 import javax.persistence.*;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
+import java.util.ArrayList;
+import java.util.List;
 
 @Entity
 @Table(name = "Sala")
@@ -25,9 +27,8 @@ public class Room {
     @JoinColumn(name = "fkBuilding", referencedColumnName = "idPredio")
     private Building building;
 
-    @OneToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name = "fkClnbox")
-    private ClnBox clnBox;
+    @OneToMany(mappedBy = "room")
+    private List<CLNBox> clnBoxes = new ArrayList();
 
     public Integer getIdRoom() {
         return idRoom;

@@ -76,4 +76,8 @@ public class Manager {
     public void setCompany(Company company) {
         this.company = company;
     }
+
+    public String getName() {
+        return nameManager;
+    }
 }
