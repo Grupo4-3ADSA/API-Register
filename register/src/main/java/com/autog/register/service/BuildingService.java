@@ -1,7 +1,6 @@
 package com.autog.register.service;
 
 import com.autog.register.entity.Building;
-import com.autog.register.entity.Company;
 import com.autog.register.repository.BuildingRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
