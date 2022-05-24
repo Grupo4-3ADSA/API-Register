@@ -1,7 +1,6 @@
 package com.autog.register.repository;
 
 import com.autog.register.entity.Building;
-import com.autog.register.entity.Company;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 

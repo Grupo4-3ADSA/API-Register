@@ -1,6 +1,5 @@
 package com.autog.register.controller;
 
-import com.autog.register.dto.request.CompanyUpdateData;
 import com.autog.register.entity.CLNBox;
 import com.autog.register.service.CLNBoxService;
 import org.springframework.beans.factory.annotation.Autowired;

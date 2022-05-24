@@ -1,10 +1,7 @@
 package com.autog.register.service;
 
-import com.autog.register.dto.request.EquipmentRequest;
 import com.autog.register.entity.CLNBox;
-import com.autog.register.entity.Equipment;
 import com.autog.register.repository.CLNBoxRepository;
-import com.autog.register.repository.EquipmentRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;

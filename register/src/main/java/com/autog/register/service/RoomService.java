@@ -2,7 +2,6 @@ package com.autog.register.service;
 
 import com.autog.register.dto.request.RoomRequest;
 import com.autog.register.dto.response.RoomResponse;
-import com.autog.register.entity.Company;
 import com.autog.register.entity.Room;
 import com.autog.register.repository.RoomRepository;
 import org.springframework.beans.factory.annotation.Autowired;
