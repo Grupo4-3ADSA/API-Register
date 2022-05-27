@@ -20,8 +20,8 @@ public class EquipmentService {
         return ResponseEntity.status(201).build();
     }
 
-    public ResponseEntity getEquipment(Integer idCompany) {
-        List<Equipment> equipments = repository.getEquipmentByCompany(idCompany);
+    public ResponseEntity getEquipment(Integer idCLNBox) {
+        List<Equipment> equipments = repository.getEquipmentByClnBox(idCLNBox);
         if (equipments.isEmpty()) {
             return ResponseEntity.noContent().build();
         }

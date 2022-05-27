@@ -11,6 +11,8 @@ import org.springframework.web.bind.annotation.CrossOrigin;
 
 import java.util.List;
 
+import static org.springframework.http.ResponseEntity.*;
+
 @Service
 public class RoomService {
 
@@ -19,15 +21,12 @@ public class RoomService {
 
     public ResponseEntity registerRoom(Room newRoom) {
         repository.save(newRoom);
-        return ResponseEntity.status(201).build();
+        return status(201).build();
     }
 
     public ResponseEntity listAllRooms() {
         List<RoomResponse> selectedList = repository.selectedList();
-        if (selectedList.isEmpty()) {
-            return ResponseEntity.noContent().build();
-        }
-        return ResponseEntity.ok(selectedList);
+        return selectedList.isEmpty() ? noContent().build() : ok().body(selectedList);
     }
 
     @CrossOrigin

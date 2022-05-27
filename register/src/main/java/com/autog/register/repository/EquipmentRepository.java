@@ -11,7 +11,7 @@ import java.util.List;
 public interface EquipmentRepository extends JpaRepository<Equipment, Integer> {
 
     @Query("SELECT e FROM Equipment e WHERE clnBox.idCLNBox = ?1")
-    List<Equipment> getEquipmentByCompany(Integer idCompany);
+    List<Equipment> getEquipmentByClnBox(Integer idCLNBox);
 
     @Transactional
     @Modifying
