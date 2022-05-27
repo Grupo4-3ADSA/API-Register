@@ -1,5 +1,6 @@
 package com.autog.register.service;
 
+import com.autog.register.dto.request.CompanyUpdateData;
 import com.autog.register.entity.Company;
 import com.autog.register.entity.Room;
 import com.autog.register.repository.CompanyRepository;
@@ -75,5 +76,17 @@ class CompanyServiceTest {
 
     @Test
     void updateCompany() {
+
+        Company c1 = mock(Company.class);
+        CompanyUpdateData cd1 = mock(CompanyUpdateData.class);
+
+        List<Company> listMock = List.of(c1);
+
+        when(repository.existsById(1)).thenReturn(true);
+
+        ResponseEntity<List<Company>> response = service.updateCompany(1, cd1);
+
+        assertEquals(200, response.getStatusCodeValue());
+
     }
 }

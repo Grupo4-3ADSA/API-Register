@@ -54,6 +54,18 @@ class ManagerServiceTest {
 
     @Test
     void editManager() {
+
+        Manager m1 = mock(Manager.class);
+        Manager m2 = mock(Manager.class);
+
+        List<Manager> listMock = List.of(m1);
+
+        when(repository.existsById(1)).thenReturn(true);
+
+        ResponseEntity<List<Manager>> response = service.editManager(1, m2);
+
+        assertEquals(200, response.getStatusCodeValue());
+
     }
 
     @Test

@@ -11,6 +11,8 @@ import org.springframework.http.ResponseEntity;
 import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.*;
+import static org.mockito.Mockito.mock;
+import static org.mockito.Mockito.when;
 
 @SpringBootTest(classes = {AddressService.class})
 class AddressServiceTest {
@@ -36,12 +38,16 @@ class AddressServiceTest {
     @Test
     void updateAddress() {
 
-        Address a1 = new Address();
-        Address a2 = new Address();
+        Address a1 = mock(Address.class);
+        Address a2 = mock(Address.class);
 
-        a1.setCity("sao paulo");
-        a2.setCity("Rio de janeiro");
+        List<Address> listMock = List.of(a1);
 
+        when(repository.existsById(1)).thenReturn(true);
+
+        ResponseEntity<List<Address>> response = service.updateAddress(1, a2);
+
+        assertEquals(200, response.getStatusCodeValue());
 
 
     }

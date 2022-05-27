@@ -75,18 +75,17 @@ class RoomServiceTest {
 
     }
 
-
-
     @Test
     void editRoom() {
 
-        Room r1 = new Room();
-        RoomRequest r2 = new RoomRequest();
-        r1.setIdRoom(1);
-
-        ResponseEntity<List<Room>> response = service.editRoom(1, r2);
+        RoomRequest r1 = mock(RoomRequest.class);
+        RoomResponse sala1 = mock(RoomResponse.class);
+        RoomResponse sala2 = mock(RoomResponse.class);
+        List<RoomResponse> listMock = List.of(sala1, sala2);
 
         when(repository.existsById(1)).thenReturn(true);
+
+        ResponseEntity<List<Room>> response = service.editRoom(1, r1);
 
         assertEquals(200, response.getStatusCodeValue());
 

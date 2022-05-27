@@ -77,4 +77,43 @@ public class Equipment {
         this.lifespan = lifespan;
     }
 
+    public String getType() {
+        return type;
+    }
+
+    public void setType(String type) {
+        this.type = type;
+    }
+
+    public Integer getPotency() {
+        return potency;
+    }
+
+    public void setPotency(Integer potency) {
+        this.potency = potency;
+    }
+
+    public Integer getQtdEquipment() {
+        return qtdEquipment;
+    }
+
+    public void setQtdEquipment(Integer qtdEquipment) {
+        this.qtdEquipment = qtdEquipment;
+    }
+
+    public Integer getDoor() {
+        return door;
+    }
+
+    public void setDoor(Integer door) {
+        this.door = door;
+    }
+
+    public CLNBox getClnBox() {
+        return clnBox;
+    }
+
+    public void setClnBox(CLNBox clnBox) {
+        this.clnBox = clnBox;
+    }
 }

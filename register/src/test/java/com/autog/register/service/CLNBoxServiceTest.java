@@ -58,6 +58,18 @@ class CLNBoxServiceTest {
 
     @Test
     void editCLNBox() {
+
+        CLNBox c1 = mock(CLNBox.class);
+        CLNBox c2 = mock(CLNBox.class);
+
+        List<CLNBox> listMock = List.of(c1);
+
+        when(repository.existsById(1)).thenReturn(true);
+
+        ResponseEntity<List<CLNBox>> response = service.editCLNBox(1, c2);
+
+        assertEquals(200, response.getStatusCodeValue());
+
     }
 
     @Test

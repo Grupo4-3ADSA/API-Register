@@ -1,5 +1,7 @@
 package com.autog.register.service;
 
+import com.autog.register.dto.request.EquipmentRequest;
+import com.autog.register.entity.CLNBox;
 import com.autog.register.entity.Equipment;
 import com.autog.register.repository.EquipmentRepository;
 import org.junit.jupiter.api.Test;
@@ -41,13 +43,19 @@ class EquipmentServiceTest {
         Equipment e1 = mock(Equipment.class);
         Equipment e2 = mock(Equipment.class);
 
+        CLNBox c1 = new CLNBox();
+        c1.setIdCLNBox(1);
+
+        Integer id = 1;
+        e1.setIdEquipment(1);
+        e1.setClnBox(c1);
+
         List<Equipment> listMock = List.of(e1, e2);
 
-        ResponseEntity<List<Equipment>> response = service.getEquipment(1);
+        when(repository.getEquipmentByClnBox(id)).thenReturn(listMock);
 
-        when(repository.getEquipmentByCompany(1)).thenReturn(listMock);
+        ResponseEntity<List<Equipment>> response = service.getEquipment(id);
 
-        assertNotNull(response.getBody());
         assertEquals(listMock, response.getBody());
         assertEquals(200, response.getStatusCodeValue());
 
@@ -55,6 +63,18 @@ class EquipmentServiceTest {
 
     @Test
     void editEquipment() {
+
+        Equipment e1 = mock(Equipment.class);
+        EquipmentRequest er1 = mock(EquipmentRequest.class);
+
+        List<Equipment> listMock = List.of(e1);
+
+        when(repository.existsById(1)).thenReturn(true);
+
+        ResponseEntity<List<Equipment>> response = service.editEquipment(1, er1);
+
+        assertEquals(200, response.getStatusCodeValue());
+
     }
 
     @Test
