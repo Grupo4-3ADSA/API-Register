@@ -33,11 +33,9 @@ public class Equipment {
     @Column(name = "potencia")
     private Integer potency;
 
-    @NotNull
     @Column(name = "qtdEquipamento")
     private Integer qtdEquipment;
 
-    @NotNull
     @Column(name = "porta")
     private Integer door;
 

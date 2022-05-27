@@ -2,7 +2,9 @@ package com.autog.register.service;
 
 import com.autog.register.dto.request.EquipmentRequest;
 import com.autog.register.entity.Equipment;
+import com.autog.register.entity.Room;
 import com.autog.register.repository.EquipmentRepository;
+import com.autog.register.repository.RoomRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
