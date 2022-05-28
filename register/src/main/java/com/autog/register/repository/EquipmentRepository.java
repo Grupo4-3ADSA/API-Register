@@ -13,6 +13,9 @@ public interface EquipmentRepository extends JpaRepository<Equipment, Integer> {
     @Query("SELECT e FROM Equipment e WHERE clnBox.idCLNBox = ?1")
     List<Equipment> getEquipmentByClnBox(Integer idCLNBox);
 
+    @Query("SELECT e FROM Equipment e WHERE clnBox.idCLNBox = ?1 AND e.type = ?2")
+    List<Equipment> getEquipmentByClnBoxAndType(Integer idCLNBox, String type);
+
     @Transactional
     @Modifying
     @Query("DELETE Equipment e WHERE e.idEquipment = ?1")

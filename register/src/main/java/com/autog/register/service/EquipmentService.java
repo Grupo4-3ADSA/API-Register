@@ -3,6 +3,7 @@ package com.autog.register.service;
 import com.autog.register.dto.request.EquipmentRequest;
 import com.autog.register.entity.Equipment;
 import com.autog.register.entity.Room;
+import com.autog.register.enums.TypesEquipment;
 import com.autog.register.repository.EquipmentRepository;
 import com.autog.register.repository.RoomRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -44,5 +45,13 @@ public class EquipmentService {
             return ResponseEntity.ok().build();
         }
         return ResponseEntity.notFound().build();
+    }
+
+    public ResponseEntity getEquipmentByType(Integer idEquipment, TypesEquipment typesEquipment) {
+        List<Equipment> equipments = repository.getEquipmentByClnBoxAndType(idEquipment, typesEquipment.name());
+        if (equipments.isEmpty()) {
+            return ResponseEntity.noContent().build();
+        }
+        return ResponseEntity.ok(equipments);
     }
 }

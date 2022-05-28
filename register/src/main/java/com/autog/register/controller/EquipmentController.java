@@ -2,6 +2,7 @@ package com.autog.register.controller;
 
 import com.autog.register.dto.request.EquipmentRequest;
 import com.autog.register.entity.Equipment;
+import com.autog.register.enums.TypesEquipment;
 import com.autog.register.service.EquipmentService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -34,5 +35,11 @@ public class EquipmentController {
     @DeleteMapping("/{id}")
     public ResponseEntity deleteEquipmentById(@PathVariable Integer id) {
         return service.deleteEquipmentById(id);
+    }
+
+    @GetMapping("{idCompany}/{type}")
+    public ResponseEntity getEquipmentByType(@PathVariable Integer idCompany,
+                                             @PathVariable TypesEquipment typesEquipment) {
+        return service.getEquipmentByType(idCompany, typesEquipment);
     }
 }
