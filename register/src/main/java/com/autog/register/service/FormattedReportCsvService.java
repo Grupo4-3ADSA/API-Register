@@ -3,12 +3,9 @@ package com.autog.register.service;
 import com.autog.register.dto.response.FormattedReport;
 import com.autog.register.dto.response.MonthlyConsumption;
 import com.autog.register.entity.ListaObj;
-import com.autog.register.entity.RateValue;
+import com.autog.register.entity.Register;
 import com.autog.register.repository.CompanyRepository;
-import com.autog.register.repository.RateValueRepository;
-import com.autog.register.rest.setoreletrico.SetorEletricoBandeiraCliente;
-import com.autog.register.rest.setoreletrico.SetorEletricoResposta;
-import feign.FeignException;
+import com.autog.register.repository.RegisterRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -18,10 +15,13 @@ import org.springframework.web.bind.annotation.RestController;
 
 import java.io.FileWriter;
 import java.io.IOException;
-import java.util.ArrayList;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.Formatter;
 import java.util.FormatterClosedException;
 import java.util.List;
+import java.util.Date;
+
 
 import static org.springframework.http.ResponseEntity.status;
 
@@ -32,6 +32,9 @@ public class FormattedReportCsvService {
 
     @Autowired
     private CompanyRepository repository;
+
+    @Autowired
+    private RegisterRepository registerRepository;
 
 //    @GetMapping("/corpoum/{idPredio}")
 //    public ResponseEntity geracaoRelatorioCsv1(@PathVariable int idPredio) {
@@ -110,6 +113,35 @@ public class FormattedReportCsvService {
         }
 
         return status(200).build();
+    }
+
+    public void totalLampadaLigada(Integer fkEquipamento, Date dataInicio, Date dataFim){
+        long totalSegundos = 0;
+        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss.SSSSSS");
+        try {
+            List<Register> lista = registerRepository.getByEquipmentAndDateBetween(fkEquipamento, dataInicio, dataFim);
+            if (!lista.isEmpty()) {
+
+                for (int i = 0; i < lista.size(); i++) {
+
+                    Date d1 = null;
+                    Date d2 = null;
+
+                    if (lista.get(i).isOn()) {
+                        d1 = sdf.parse(lista.get(i).getDate().toString());
+                    }else {
+                        d2 = sdf.parse(lista.get(i).getDate().toString());
+                    }
+
+                    if (d1 != null && d2 != null) {
+                        long diferenca = d2.getTime() - d1.getTime();
+                        totalSegundos += diferenca / 1000;
+                    }
+                }
+            }
+        } catch (ParseException e) {
+            e.printStackTrace();
+        }
     }
 
 

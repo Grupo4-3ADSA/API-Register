@@ -86,16 +86,29 @@ values ('Lampada LED Philips','Conjunto de Lampadas', '2022-03-01', 2000, 220, 2
 -- Tabela Register - Registro
 insert into Registro (fk_equipamento, ligado, data) values (1, true, '2022-05-20 07:30:00');
 insert into Registro (fk_equipamento, ligado, data) values (2, true, '2022-05-20 09:00:00');
+insert into Registro (fk_equipamento, ligado, data) values (2, true, '2022-05-20 09:00:00');
 insert into Registro (fk_equipamento, ligado, data) values (3, true, '2022-05-20 09:00:00');
 insert into Registro (fk_equipamento, ligado, data) values (4, true, '2022-05-20 07:30:00');
 insert into Registro (fk_equipamento, ligado, data) values (5, true, '2022-05-20 09:00:00');
-
 insert into Registro (fk_equipamento, ligado, data) values (6, true, '2022-05-20 16:30:00');
 insert into Registro (fk_equipamento, ligado, data) values (7, true, '2022-05-20 16:30:00');
 insert into Registro (fk_equipamento, ligado, data) values (8, true, '2022-05-20 16:30:00');
 insert into Registro (fk_equipamento, ligado, data) values (9, true, '2022-05-20 16:30:00');
 insert into Registro (fk_equipamento, ligado, data) values (10, true, '2022-05-20 16:30:00');
 insert into Registro (fk_equipamento, ligado, data) values (11, true, '2022-05-20 16:30:00');
+
+insert into Registro (fk_equipamento, ligado, data) values (1, false, '2022-05-21 07:30:00');
+insert into Registro (fk_equipamento, ligado, data) values (2, false, '2022-05-21 09:00:00');
+insert into Registro (fk_equipamento, ligado, data) values (2, false, '2022-05-21 09:00:00');
+insert into Registro (fk_equipamento, ligado, data) values (3, false, '2022-05-21 09:00:00');
+insert into Registro (fk_equipamento, ligado, data) values (4, false, '2022-05-21 07:30:00');
+insert into Registro (fk_equipamento, ligado, data) values (5, false, '2022-05-21 09:00:00');
+insert into Registro (fk_equipamento, ligado, data) values (6, false, '2022-05-21 16:30:00');
+insert into Registro (fk_equipamento, ligado, data) values (7, false, '2022-05-21 16:30:00');
+insert into Registro (fk_equipamento, ligado, data) values (8, false, '2022-05-21 16:30:00');
+insert into Registro (fk_equipamento, ligado, data) values (9, false, '2022-05-21 16:30:00');
+insert into Registro (fk_equipamento, ligado, data) values (10,false, '2022-05-21 16:30:00');
+insert into Registro (fk_equipamento, ligado, data) values (11,false, '2022-05-21 16:30:00');
 
 -- Tabela TemperatureSensor - SensorTemperatura
 insert into sensor_temperatura (temperatura, data, fk_equipamento) values (21.0 , '2022-05-20 10:30:00', 1);
