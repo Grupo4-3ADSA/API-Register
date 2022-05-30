@@ -23,6 +23,7 @@ import java.util.List;
 import java.util.Date;
 
 
+import static org.springframework.http.ResponseEntity.created;
 import static org.springframework.http.ResponseEntity.status;
 
 //@Service
@@ -54,12 +55,12 @@ public class FormattedReportCsvService {
 //        return null;
 //    }
 
-    @GetMapping("/corpodois/{idPredio}")
-    public ResponseEntity geracaoRelatorioCsv(@PathVariable int idPredio) {
+    public ResponseEntity gravaArquivo(int idPredio, Integer fkEquipamento, Date dataInicio, Date dataFim){
 
         FileWriter arq = null;
         Formatter saida = null;
         Boolean deuRuim = false;
+        long totalHoras = totalLampadaLigada(fkEquipamento, dataInicio, dataFim);
         String nomeArq = "relatorio.csv";
 
         // Bloco try catch para abrir o arquivo
@@ -94,7 +95,7 @@ public class FormattedReportCsvService {
             saida.format("%s;%s;%s;%s\n", "Sala", "Andar", "Consumo kwm", "Preco");
             for (int i = 0; i < corpo2.getTamanho(); i++) {
                 MonthlyConsumption mc = corpo2.getElemento(i);
-                saida.format("%s;%d;\n", mc.getName(), mc.getFloor());
+                saida.format("%s;%d;%d;%.2f\n", mc.getName(), mc.getFloor(), mc.getConsumoKwm(),mc.getPreco());
             }
         } catch (FormatterClosedException erro) {
             System.out.println("Erro ao gravar o arquivo");
@@ -112,10 +113,10 @@ public class FormattedReportCsvService {
             }
         }
 
-        return status(200).build();
+        return status(201).build();
     }
 
-    public void totalLampadaLigada(Integer fkEquipamento, Date dataInicio, Date dataFim){
+    public long totalLampadaLigada(Integer fkEquipamento, Date dataInicio, Date dataFim){
         long totalSegundos = 0;
         SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss.SSSSSS");
         try {
@@ -142,6 +143,9 @@ public class FormattedReportCsvService {
         } catch (ParseException e) {
             e.printStackTrace();
         }
+        long diferencaMinutos = totalSegundos / 60;
+
+        return diferencaMinutos / 60;
     }
 
 

@@ -4,8 +4,8 @@ public class MonthlyConsumption {
 
     private String name;
     private Integer floor;
-//    private Double consumoKwm;
-//    private Double preco;
+    private long consumoKwm;
+    private Double preco;
 
     public MonthlyConsumption(String name, Integer floor) {
         this.name = name;
@@ -28,21 +28,21 @@ public class MonthlyConsumption {
         this.floor = floor;
     }
 
-//    public Double getConsumoKwm() {
-//        return consumoKwm;
-//    }
-//
-//    public void setConsumoKwm(Double consumoKwm) {
-//        this.consumoKwm = consumoKwm;
-//    }
-//
-//    public Double getPreco() {
-//        return preco;
-//    }
-//
-//    public void setPreco(Double preco) {
-//        this.preco = preco;
-//    }
+    public long getConsumoKwm() {
+        return consumoKwm;
+    }
+
+    public void setConsumoKwm(long consumoKwm) {
+        this.consumoKwm = consumoKwm;
+    }
+
+    public Double getPreco() {
+        return preco;
+    }
+
+    public void setPreco(Double preco) {
+        this.preco = preco;
+    }
 
 
     @Override
