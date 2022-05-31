@@ -10,7 +10,7 @@ public class CLNBox {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "idCLNBox")
+    @Column(name = "idClnbox")
     private Integer idCLNBox;
 
     @Column(name = "qrCode")

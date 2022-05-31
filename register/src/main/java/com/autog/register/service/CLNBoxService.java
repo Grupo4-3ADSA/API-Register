@@ -8,6 +8,9 @@ import org.springframework.stereotype.Service;
 
 import java.util.List;
 
+import static org.springframework.http.ResponseEntity.noContent;
+import static org.springframework.http.ResponseEntity.ok;
+
 @Service
 public class CLNBoxService {
 
@@ -21,10 +24,7 @@ public class CLNBoxService {
 
     public ResponseEntity getCLNBox() {
         List<CLNBox> clnBoxes = repository.findAll();
-        if (clnBoxes.isEmpty()) {
-            return ResponseEntity.status(204).build();
-        }
-        return ResponseEntity.status(200).body(clnBoxes);
+        return clnBoxes.isEmpty() ? noContent().build() : ok().body(clnBoxes);
     }
 
     public ResponseEntity editCLNBox(Integer id, CLNBox newCLNBox) {
