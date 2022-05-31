@@ -40,8 +40,8 @@ public class Company {
     private LocalDate openingDate;
 
     @NotNull
-    @Column(name = "ativa")
-    private Boolean active;
+    @Column(name = "ativa", columnDefinition = "TINYINT", length = 1)
+    private boolean active;
 
     @OneToMany(mappedBy = "company")
     private List<Building> buildings = new ArrayList();
