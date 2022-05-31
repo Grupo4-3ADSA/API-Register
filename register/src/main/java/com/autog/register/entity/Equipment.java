@@ -1,5 +1,7 @@
 package com.autog.register.entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import javax.persistence.*;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
@@ -40,7 +42,7 @@ public class Equipment {
     private Integer door;
 
     @ManyToOne
-    @JoinColumn(name = "idCLNBox", referencedColumnName = "idCLNBox")
+    @JoinColumn(name = "fkClnbox", referencedColumnName = "idClnbox")
     private CLNBox clnBox;
 
     public Integer getIdEquipment() {
@@ -107,6 +109,7 @@ public class Equipment {
         this.door = door;
     }
 
+    @JsonIgnore
     public CLNBox getClnBox() {
         return clnBox;
     }

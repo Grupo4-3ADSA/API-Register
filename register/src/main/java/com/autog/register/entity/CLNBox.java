@@ -1,5 +1,7 @@
 package com.autog.register.entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import javax.persistence.*;
 import java.util.ArrayList;
 import java.util.List;
@@ -26,6 +28,7 @@ public class CLNBox {
     @OneToMany(mappedBy = "clnBox")
     private List<Equipment> equipment = new ArrayList();
 
+    @JsonIgnore
     public Room getRoom() {
         return room;
     }
