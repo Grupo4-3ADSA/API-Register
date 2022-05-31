@@ -1,17 +1,14 @@
 package com.autog.register.service;
 
+import com.autog.register.dto.request.EquipmentRelatorio;
 import com.autog.register.dto.response.FormattedReport;
 import com.autog.register.dto.response.MonthlyConsumption;
 import com.autog.register.entity.ListaObj;
 import com.autog.register.entity.Register;
 import com.autog.register.repository.CompanyRepository;
 import com.autog.register.repository.RegisterRepository;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.stereotype.Service;
 
 import java.io.FileWriter;
 import java.io.IOException;
@@ -23,19 +20,10 @@ import java.util.List;
 import java.util.Date;
 
 
-import static org.springframework.http.ResponseEntity.created;
 import static org.springframework.http.ResponseEntity.status;
 
-//@Service
-@RestController
-@RequestMapping("/relatorio")
+@Service
 public class FormattedReportCsvService {
-
-    @Autowired
-    private CompanyRepository repository;
-
-    @Autowired
-    private RegisterRepository registerRepository;
 
 //    @GetMapping("/corpoum/{idPredio}")
 //    public ResponseEntity geracaoRelatorioCsv1(@PathVariable int idPredio) {
@@ -55,12 +43,14 @@ public class FormattedReportCsvService {
 //        return null;
 //    }
 
-    public ResponseEntity gravaArquivo(int idPredio, Integer fkEquipamento, Date dataInicio, Date dataFim){
+
+    public ResponseEntity gravaArquivo(EquipmentRelatorio data, CompanyRepository repository,
+                                       RegisterRepository registerRepository){
 
         FileWriter arq = null;
         Formatter saida = null;
         Boolean deuRuim = false;
-        long totalHoras = totalLampadaLigada(fkEquipamento, dataInicio, dataFim);
+        long setTotalHoras = totalLampadaLigada(data, registerRepository);
         String nomeArq = "relatorio.csv";
 
         // Bloco try catch para abrir o arquivo
@@ -74,8 +64,8 @@ public class FormattedReportCsvService {
 
         // Bloco try catch para gravar o arquivo
         try {
-            FormattedReport corpo1 = repository.corpoUm(idPredio);
-            saida.format("%s;%s; Bandeira - %s\n\n", "05/2022", "Amarela");
+            FormattedReport corpo1 = repository.corpoUm(data.getIdPredio());
+            saida.format("%s;%s; Bandeira - \n\n", "05/2022", "Amarela");
 
             saida.format("%s;%s;%s\n", "Nome responsavel", "Razao Social", "CNPJ");
             saida.format("%s;%s;%s\n\n", corpo1.getNameManager(), corpo1.getCorporateName(),
@@ -85,7 +75,7 @@ public class FormattedReportCsvService {
             saida.format("%s;%s;%d;%s\n\n", corpo1.getNameBuilding(), corpo1.getPublicPlace(),
                     corpo1.getNumber(), corpo1.getCep());
 
-            List<MonthlyConsumption> listaLength = repository.corpoDois(idPredio);
+            List<MonthlyConsumption> listaLength = repository.corpoDois(data.getIdPredio());
             ListaObj<MonthlyConsumption> corpo2 = new ListaObj<>(listaLength.size());
 
             for (MonthlyConsumption mc : listaLength) {
@@ -95,6 +85,7 @@ public class FormattedReportCsvService {
             saida.format("%s;%s;%s;%s\n", "Sala", "Andar", "Consumo kwm", "Preco");
             for (int i = 0; i < corpo2.getTamanho(); i++) {
                 MonthlyConsumption mc = corpo2.getElemento(i);
+                mc.setConsumoKwm(setTotalHoras * 500);
                 saida.format("%s;%d;%d;%.2f\n", mc.getName(), mc.getFloor(), mc.getConsumoKwm(),mc.getPreco());
             }
         } catch (FormatterClosedException erro) {
@@ -116,11 +107,15 @@ public class FormattedReportCsvService {
         return status(201).build();
     }
 
-    public long totalLampadaLigada(Integer fkEquipamento, Date dataInicio, Date dataFim){
+    public long totalLampadaLigada(EquipmentRelatorio data, RegisterRepository registerRepository){
         long totalSegundos = 0;
-        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss.SSSSSS");
+        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+        String data1 = data.getDataInicio().toString().replaceAll("T"," ")+".000";
+        String data2 = data.getDataFim().toString().replaceAll("T"," ")+".000";
         try {
-            List<Register> lista = registerRepository.getByEquipmentAndDateBetween(fkEquipamento, dataInicio, dataFim);
+            String hora1 = data.getDataInicio().toString();
+            String hora2 = data.getDataFim().toString();
+            List<Register> lista = registerRepository.findRegisterByEquipmentAndDateBetween(1, hora1, hora2);
             if (!lista.isEmpty()) {
 
                 for (int i = 0; i < lista.size(); i++) {
@@ -147,6 +142,5 @@ public class FormattedReportCsvService {
 
         return diferencaMinutos / 60;
     }
-
 
 }

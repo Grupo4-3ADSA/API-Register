@@ -7,7 +7,7 @@ insert into Empresa (id_empresa, razao_social, cnpj, telefone, email, data_abert
 values (2001,'São Paulo Tech School', '07165496000100', '1135894043',
 'atendimento@sptech.school', '2022-02-12', true);
 
--- Tabela Manager - Gestor
+-- Tabela Gestor - Gestor
 insert into Gestor (id_gestor, nome_gestor, login, senha, fk_company) values (500, 'Lorena Machado',
 'lmachado@oncln.com', '#Tortalaranja123', 2000);
 

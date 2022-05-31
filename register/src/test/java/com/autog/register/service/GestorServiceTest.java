@@ -1,6 +1,6 @@
 package com.autog.register.service;
 
-import com.autog.register.entity.Manager;
+import com.autog.register.entity.Gestor;
 import com.autog.register.repository.ManagerRepository;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -8,13 +8,12 @@ import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.test.mock.mockito.MockBean;
 import org.springframework.http.ResponseEntity;
 
-import java.util.ArrayList;
 import java.util.List;
 import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.Mockito.*;
 
 @SpringBootTest(classes = {ManagerService.class})
-class ManagerServiceTest {
+class GestorServiceTest {
 
     @Autowired
     ManagerService service;
@@ -25,9 +24,9 @@ class ManagerServiceTest {
     @Test
     void registerEquipment() {
 
-        Manager m1 = new Manager();
+        Gestor m1 = new Gestor();
 
-        ResponseEntity<List<Manager>> response = service.registerEquipment(m1);
+        ResponseEntity<List<Gestor>> response = service.registerEquipment(m1);
 
         assertEquals(201, response.getStatusCodeValue());
         assertNull(response.getBody());
@@ -37,14 +36,14 @@ class ManagerServiceTest {
     @Test
     void getManagers() {
 
-        Manager m1 = mock(Manager.class);
-        Manager m2 = mock(Manager.class);
+        Gestor m1 = mock(Gestor.class);
+        Gestor m2 = mock(Gestor.class);
 
-        List<Manager> listMock = List.of(m1, m2);
+        List<Gestor> listMock = List.of(m1, m2);
 
         when(repository.findAll()).thenReturn(listMock);
 
-        ResponseEntity<List<Manager>> response = service.getManagers();
+        ResponseEntity<List<Gestor>> response = service.getManagers();
 
         assertNotNull(response.getBody());
         assertEquals(listMock, response.getBody());
@@ -55,14 +54,14 @@ class ManagerServiceTest {
     @Test
     void editManager() {
 
-        Manager m1 = mock(Manager.class);
-        Manager m2 = mock(Manager.class);
+        Gestor m1 = mock(Gestor.class);
+        Gestor m2 = mock(Gestor.class);
 
-        List<Manager> listMock = List.of(m1);
+        List<Gestor> listMock = List.of(m1);
 
         when(repository.existsById(1)).thenReturn(true);
 
-        ResponseEntity<List<Manager>> response = service.editManager(1, m2);
+        ResponseEntity<List<Gestor>> response = service.editManager(1, m2);
 
         assertEquals(200, response.getStatusCodeValue());
 
@@ -71,17 +70,17 @@ class ManagerServiceTest {
     @Test
     void deleteManagerById() {
 
-        Manager m1 = new Manager();
-        Manager m2 = new Manager();
+        Gestor m1 = new Gestor();
+        Gestor m2 = new Gestor();
 
         Integer id = 1;
         m1.setIdManager(id);
 
-        List<Manager> listMock = List.of(m1, m2);
+        List<Gestor> listMock = List.of(m1, m2);
 
         when(repository.existsById(id)).thenReturn(true);
 
-        ResponseEntity<List<Manager>> response = service.deleteManagerById(id);
+        ResponseEntity<List<Gestor>> response = service.deleteManagerById(id);
 
         assertEquals(200, response.getStatusCodeValue());
         assertNull(response.getBody());

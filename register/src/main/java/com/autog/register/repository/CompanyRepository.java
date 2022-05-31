@@ -6,7 +6,6 @@ import com.autog.register.entity.Company;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Modifying;
 import org.springframework.data.jpa.repository.Query;
-import org.springframework.web.bind.annotation.PathVariable;
 
 import javax.transaction.Transactional;
 import java.util.List;
@@ -15,8 +14,7 @@ public interface CompanyRepository extends JpaRepository<Company, Integer> {
 
     @Transactional
     @Modifying
-    @Query("DELETE Company s WHERE s.id = ?1")
-    void deleteCompany(Integer id);
+    void deleteByIdCompany(Integer id);
 
     @Transactional
     @Modifying
@@ -25,7 +23,7 @@ public interface CompanyRepository extends JpaRepository<Company, Integer> {
 
     @Query("select new com.autog.register.dto.response.FormattedReport(m.nameManager, " +
             "c.corporateName, c.cnpj, b.nameBuilding, a.publicPlace, a.number, a.cep) " +
-            "from Company c join c.managers m join c.buildings b join b.address a " +
+            "from Company c join c.gestors m join c.buildings b join b.address a " +
             "where b.idBuilding = ?1")
     FormattedReport corpoUm(int idPredio);
 

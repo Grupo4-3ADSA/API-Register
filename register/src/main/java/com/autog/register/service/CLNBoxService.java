@@ -37,7 +37,7 @@ public class CLNBoxService {
 
     public ResponseEntity deleteCLNBoxById(Integer id) {
         if (repository.existsById(id)) {
-            repository.deleteCLNBox(id);
+            repository.deleteByIdCLNBox(id);
             return ResponseEntity.status(200).build();
         }
         return ResponseEntity.status(404).build();

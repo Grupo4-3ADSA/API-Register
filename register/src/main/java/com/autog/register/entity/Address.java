@@ -50,6 +50,10 @@ public class Address {
         return building;
     }
 
+    public String getCep() {
+        return cep;
+    }
+
     public void setBuilding(Building building) {
         this.building = building;
     }

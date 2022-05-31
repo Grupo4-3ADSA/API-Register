@@ -41,7 +41,7 @@ public class RoomService {
     @CrossOrigin
     public ResponseEntity deleteRoom(Integer id) {
         if (repository.existsById(id)) {
-            repository.deleteRoom(id);
+            repository.deleteByIdRoom(id);
             return ResponseEntity.ok().build();
         }
         return ResponseEntity.notFound().build();

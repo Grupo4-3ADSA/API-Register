@@ -11,8 +11,7 @@ public interface CLNBoxRepository extends JpaRepository<CLNBox, Integer> {
 
     @Transactional
     @Modifying
-    @Query("DELETE CLNBox c WHERE c.idCLNBox = ?1")
-    void deleteCLNBox(Integer id);
+    void deleteByIdCLNBox(Integer id);
 
     @Transactional
     @Modifying

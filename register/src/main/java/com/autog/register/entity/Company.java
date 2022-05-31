@@ -43,11 +43,19 @@ public class Company {
     @Column(name = "ativa")
     private Boolean active;
 
+    public List<Building> getBuildings() {
+        return buildings;
+    }
+
+    public List<Gestor> getManagers() {
+        return gestors;
+    }
+
     @OneToMany(mappedBy = "company")
     private List<Building> buildings = new ArrayList();
 
     @OneToMany(mappedBy = "company")
-    private List<Manager> managers = new ArrayList();
+    private List<Gestor> gestors = new ArrayList();
 
     public Integer getIdCompany() {
         return idCompany;

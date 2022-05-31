@@ -1,7 +1,11 @@
 package com.autog.register.controller;
 
+import com.autog.register.dto.request.EquipmentRelatorio;
 import com.autog.register.dto.request.EquipmentRequest;
 import com.autog.register.entity.Equipment;
+import com.autog.register.repository.CompanyRepository;
+import com.autog.register.repository.ManagerRepository;
+import com.autog.register.repository.RegisterRepository;
 import com.autog.register.service.EquipmentService;
 import com.autog.register.service.FormattedReportCsvService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -18,6 +22,12 @@ public class EquipmentController {
     @Autowired
     private EquipmentService service;
 
+    @Autowired
+    private CompanyRepository repository;
+
+    @Autowired
+    private RegisterRepository registerRepository;
+
     @PostMapping
     public ResponseEntity registerEquipment(@RequestBody @Valid Equipment newEquipment) {
         return service.registerEquipment(newEquipment);
@@ -33,9 +43,9 @@ public class EquipmentController {
         return service.editEquipment(id, request);
     }
 
-    @GetMapping("/corpodois/{idPredio}/{fkEquipamento}/{dataInicio}/{dataFim}")
-    public ResponseEntity geracaoRelatorioCsv(@PathVariable int idPredio,@PathVariable Integer fkEquipamento,@PathVariable Date dataInicio,@PathVariable Date dataFim) {
-        return new FormattedReportCsvService().gravaArquivo(idPredio, fkEquipamento, dataInicio, dataFim);
+    @PostMapping("/corpodois/")
+    public ResponseEntity geracaoRelatorioCsv(@RequestBody EquipmentRelatorio data) {
+        return new FormattedReportCsvService().gravaArquivo(data, repository, registerRepository);
     }
 
     @DeleteMapping("/{id}")

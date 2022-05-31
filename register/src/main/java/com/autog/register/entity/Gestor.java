@@ -5,7 +5,7 @@ import javax.validation.constraints.NotBlank;
 
 @Entity
 @Table(name = "Gestor")
-public class Manager {
+public class Gestor {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

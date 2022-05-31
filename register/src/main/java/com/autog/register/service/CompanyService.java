@@ -30,7 +30,7 @@ public class CompanyService {
 
     public ResponseEntity deleteCompanyById(Integer id) {
         if (repository.existsById(id)) {
-            repository.deleteCompany(id);
+            repository.deleteByIdCompany(id);
             return ResponseEntity.ok().build();
         }
         return ResponseEntity.notFound().build();

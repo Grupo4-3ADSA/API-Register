@@ -1,6 +1,6 @@
 package com.autog.register.service;
 
-import com.autog.register.entity.Manager;
+import com.autog.register.entity.Gestor;
 import com.autog.register.repository.ManagerRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -14,20 +14,20 @@ public class ManagerService {
     @Autowired
     private ManagerRepository repository;
 
-    public ResponseEntity registerEquipment(Manager newManager) {
-        repository.save(newManager);
+    public ResponseEntity registerEquipment(Gestor newGestor) {
+        repository.save(newGestor);
         return ResponseEntity.status(201).build();
     }
 
     public ResponseEntity getManagers() {
-        List<Manager> managers = repository.findAll();
-        if (managers.isEmpty()) {
+        List<Gestor> gestors = repository.findAll();
+        if (gestors.isEmpty()) {
             return ResponseEntity.noContent().build();
         }
-        return ResponseEntity.ok(managers);
+        return ResponseEntity.ok(gestors);
     }
 
-    public ResponseEntity editManager(Integer id, Manager request) {
+    public ResponseEntity editManager(Integer id, Gestor request) {
         if (repository.existsById(id)) {
             repository.updateManager(id, request.getName(), request.getLogin(), request.getPassword());
             return ResponseEntity.ok().build();
@@ -38,7 +38,7 @@ public class ManagerService {
 
     public ResponseEntity deleteManagerById(Integer id) {
         if (repository.existsById(id)) {
-            repository.deleteManager(id);
+            repository.deleteByIdManager(id);
             return ResponseEntity.ok().build();
         }
         return ResponseEntity.notFound().build();
