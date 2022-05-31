@@ -27,7 +27,7 @@ class ManagerServiceTest {
 
         Manager m1 = new Manager();
 
-        ResponseEntity<List<Manager>> response = service.registerEquipment(m1);
+        ResponseEntity<List<Manager>> response = service.registerManager(m1);
 
         assertEquals(201, response.getStatusCodeValue());
         assertNull(response.getBody());

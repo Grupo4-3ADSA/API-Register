@@ -101,4 +101,12 @@ public class Address {
     public void setState(String state) {
         this.state = state;
     }
+
+    public String getCep() {
+        return cep;
+    }
+
+    public void setCep(String cep) {
+        this.cep = cep;
+    }
 }

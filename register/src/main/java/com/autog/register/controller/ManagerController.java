@@ -16,8 +16,8 @@ public class ManagerController {
     private ManagerService service;
 
     @PostMapping
-    public ResponseEntity registerEquipment(@RequestBody @Valid Manager newManager) {
-        return service.registerEquipment(newManager);
+    public ResponseEntity registerManager(@RequestBody @Valid Manager newManager) {
+        return service.registerManager(newManager);
     }
 
     @GetMapping

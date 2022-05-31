@@ -14,7 +14,7 @@ public class ManagerService {
     @Autowired
     private ManagerRepository repository;
 
-    public ResponseEntity registerEquipment(Manager newManager) {
+    public ResponseEntity registerManager(Manager newManager) {
         repository.save(newManager);
         return ResponseEntity.status(201).build();
     }
@@ -31,7 +31,6 @@ public class ManagerService {
         if (repository.existsById(id)) {
             repository.updateManager(id, request.getName(), request.getLogin(), request.getPassword());
             return ResponseEntity.ok().build();
-
         }
         return ResponseEntity.notFound().build();
     }
