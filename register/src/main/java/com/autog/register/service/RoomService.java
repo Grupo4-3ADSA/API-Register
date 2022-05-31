@@ -24,8 +24,8 @@ public class RoomService {
         return status(201).build();
     }
 
-    public ResponseEntity listAllRooms() {
-        List<RoomResponse> selectedList = repository.selectedList();
+    public ResponseEntity listAllRooms(Integer idBuilding) {
+        List<RoomResponse> selectedList = repository.selectedList(idBuilding);
         return selectedList.isEmpty() ? noContent().build() : ok().body(selectedList);
     }
 

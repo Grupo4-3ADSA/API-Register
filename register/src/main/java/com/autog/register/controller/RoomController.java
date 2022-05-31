@@ -22,9 +22,9 @@ public class RoomController {
     }
     
     
-    @GetMapping
-    public ResponseEntity listAllRooms() {
-        return service.listAllRooms();
+    @GetMapping("/{idBuilding}")
+    public ResponseEntity listAllRooms(@PathVariable Integer idBuilding) {
+        return service.listAllRooms(idBuilding);
     }
 
     @PutMapping("/{id}")
