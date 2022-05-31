@@ -14,14 +14,12 @@ public class Building {
     @Column(name = "idPredio")
     private Integer idBuilding;
 
-    @NotBlank
     @Column(name = "nomePredio")
     private String nameBuilding;
 
     @ManyToOne
-    @JoinColumn(name = "fkCompany", referencedColumnName = "idEmpresa")
+    @JoinColumn(name = "fkEmpresa", referencedColumnName = "idEmpresa")
     private Company company;
-
 
     @OneToOne(mappedBy = "building")
     private Address address;
@@ -57,8 +55,8 @@ public class Building {
         return nameBuilding;
     }
 
-    public void setNameBuilding(String name) {
-        this.nameBuilding = nameBuilding;
+    public void setNameBuilding(String nameBuilding) {
+        this.nameBuilding = this.nameBuilding;
     }
 
     public Company getCompany() {

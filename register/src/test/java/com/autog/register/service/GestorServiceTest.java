@@ -26,7 +26,11 @@ class GestorServiceTest {
 
         Gestor m1 = new Gestor();
 
+<<<<<<< HEAD:register/src/test/java/com/autog/register/service/GestorServiceTest.java
         ResponseEntity<List<Gestor>> response = service.registerEquipment(m1);
+=======
+        ResponseEntity<List<Manager>> response = service.registerManager(m1);
+>>>>>>> fbb9a5b13e003beb5ed36ad6da478574b9a63e39:register/src/test/java/com/autog/register/service/ManagerServiceTest.java
 
         assertEquals(201, response.getStatusCodeValue());
         assertNull(response.getBody());

@@ -31,7 +31,6 @@ public class ManagerService {
         if (repository.existsById(id)) {
             repository.updateManager(id, request.getName(), request.getLogin(), request.getPassword());
             return ResponseEntity.ok().build();
-
         }
         return ResponseEntity.notFound().build();
     }

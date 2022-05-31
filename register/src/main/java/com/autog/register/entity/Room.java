@@ -24,7 +24,7 @@ public class Room {
     private Integer floor;
 
     @ManyToOne
-    @JoinColumn(name = "fkBuilding", referencedColumnName = "idPredio")
+    @JoinColumn(name = "fkPredio", referencedColumnName = "idPredio")
     private Building building;
 
     @OneToMany(mappedBy = "room")

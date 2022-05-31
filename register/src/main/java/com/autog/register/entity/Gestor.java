@@ -25,17 +25,8 @@ public class Gestor {
     private String password;
 
     @ManyToOne
-    @JoinColumn(name = "fkCompany", referencedColumnName = "idEmpresa")
+    @JoinColumn(name = "fkEmpresa", referencedColumnName = "idEmpresa")
     private Company company;
-//    private Integer fkCompany;
-
-//    public Integer getFkCompany() {
-//        return fkCompany;
-//    }
-//
-//    public void setFkCompany(Integer fkCompany) {
-//        this.fkCompany = fkCompany;
-//    }
 
     public Integer getIdManager() {
         return idManager;
