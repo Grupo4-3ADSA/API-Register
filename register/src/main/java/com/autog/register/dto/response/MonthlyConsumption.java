@@ -4,8 +4,6 @@ public class MonthlyConsumption {
 
     private String name;
     private Integer floor;
-//    private Double consumoKwm;
-//    private Double preco;
 
     public MonthlyConsumption(String name, Integer floor) {
         this.name = name;
@@ -27,22 +25,6 @@ public class MonthlyConsumption {
     public void setFloor(Integer floor) {
         this.floor = floor;
     }
-
-//    public Double getConsumoKwm() {
-//        return consumoKwm;
-//    }
-//
-//    public void setConsumoKwm(Double consumoKwm) {
-//        this.consumoKwm = consumoKwm;
-//    }
-//
-//    public Double getPreco() {
-//        return preco;
-//    }
-//
-//    public void setPreco(Double preco) {
-//        this.preco = preco;
-//    }
 
 
     @Override

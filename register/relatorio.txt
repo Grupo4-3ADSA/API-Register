@@ -1,0 +1,8 @@
+00Relatorio_AUTG01-06-2022 13:49:3500
+02AUTG 05/2022  Bandeira - Verde         
+03Marcos Santos            São Paulo Tech School              07165496000100
+04Digital Building         Rua Haddock Lobo                   0059501414905
+05A                        001000038417,51000062533,30
+05B                        001000054686,71000075058,70
+06000093104,22000137592,00
+010000006
