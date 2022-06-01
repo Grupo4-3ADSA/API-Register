@@ -3,6 +3,7 @@ package com.autog.register.service;
 import com.autog.register.dto.request.EquipmentRequest;
 import com.autog.register.entity.CLNBox;
 import com.autog.register.entity.Equipment;
+import com.autog.register.enums.TypesEquipment;
 import com.autog.register.repository.EquipmentRepository;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -12,6 +13,7 @@ import org.springframework.http.ResponseEntity;
 
 import java.util.List;
 
+import static com.autog.register.enums.TypesEquipment.AR_CONDICIONADO;
 import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.when;
@@ -93,6 +95,31 @@ class EquipmentServiceTest {
 
         assertEquals(200, response.getStatusCodeValue());
         assertNull(response.getBody());
+
+    }
+
+    @Test
+    void getEquipmentByType() {
+
+        Equipment e1 = mock(Equipment.class);
+        Equipment e2 = mock(Equipment.class);
+
+        CLNBox c1 = new CLNBox();
+        c1.setIdCLNBox(1);
+
+        Integer id = 1;
+        e1.setIdEquipment(1);
+        e1.setClnBox(c1);
+
+        List<Equipment> listMock = List.of(e1, e2);
+
+        when(repository.getEquipmentByClnBoxAndType(id, "AR_CONDICIONADO")).thenReturn(listMock);
+
+        ResponseEntity<List<Equipment>> response = service.getEquipmentByType(id, AR_CONDICIONADO);
+
+        assertEquals(listMock, response.getBody());
+        assertEquals(200, response.getStatusCodeValue());
+
 
     }
 }

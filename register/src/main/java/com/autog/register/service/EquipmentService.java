@@ -47,8 +47,8 @@ public class EquipmentService {
         return ResponseEntity.notFound().build();
     }
 
-    public ResponseEntity getEquipmentByType(Integer idEquipment, TypesEquipment typesEquipment) {
-        List<Equipment> equipments = repository.getEquipmentByClnBoxAndType(idEquipment, typesEquipment.name());
+    public ResponseEntity getEquipmentByType(Integer idCompany, TypesEquipment typesEquipment) {
+        List<Equipment> equipments = repository.getEquipmentByClnBoxAndType(idCompany, typesEquipment.name());
         if (equipments.isEmpty()) {
             return ResponseEntity.noContent().build();
         }
