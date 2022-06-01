@@ -11,8 +11,8 @@ import java.util.List;
 
 public interface RoomRepository extends JpaRepository<Room, Integer> {
 
-    @Query("SELECT new com.autog.register.dto.response.RoomResponse(r.idRoom, r.name, r.floor) FROM Room r")
-    List<RoomResponse> selectedList();
+    @Query("SELECT new com.autog.register.dto.response.RoomResponse(r.idRoom, r.name, r.floor) FROM Room r where building.idBuilding = ?1")
+    List<RoomResponse> selectedList(Integer idBuilding);
 
     @Query("SELECT r FROM Room r JOIN Company c WHERE c.idCompany = ?1")
     List<Room> getRoomByCompany(Integer idCompany);
