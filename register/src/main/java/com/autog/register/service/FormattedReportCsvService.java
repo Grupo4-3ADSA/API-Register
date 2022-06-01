@@ -3,8 +3,8 @@ package com.autog.register.service;
 import com.autog.register.dto.request.EquipmentRelatorio;
 import com.autog.register.dto.response.FormattedReport;
 import com.autog.register.dto.response.MonthlyConsumption;
-import com.autog.register.entity.ListaObj;
-import com.autog.register.entity.Register;
+import com.autog.register.entity.*;
+import com.autog.register.repository.BuildingRepository;
 import com.autog.register.repository.CompanyRepository;
 import com.autog.register.repository.RegisterRepository;
 import org.springframework.http.ResponseEntity;
@@ -12,15 +12,11 @@ import org.springframework.stereotype.Service;
 
 import java.io.FileWriter;
 import java.io.IOException;
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
-import java.time.Duration;
 import java.time.LocalDateTime;
 import java.time.temporal.ChronoUnit;
 import java.util.Formatter;
 import java.util.FormatterClosedException;
 import java.util.List;
-import java.util.Date;
 
 
 import static org.springframework.http.ResponseEntity.status;
@@ -46,14 +42,13 @@ public class FormattedReportCsvService {
 //        return null;
 //    }
 
-
     public ResponseEntity gravaArquivo(EquipmentRelatorio data, CompanyRepository repository,
-                                       RegisterRepository registerRepository){
+                                       RegisterRepository registerRepository, BuildingRepository buildingRepository) {
 
         FileWriter arq = null;
         Formatter saida = null;
         Boolean deuRuim = false;
-        long setTotalHoras = totalLampadaLigada(data, registerRepository);
+        Double setTotalHoras = totalLampadaLigada(data, registerRepository, buildingRepository);
         String nomeArq = "relatorio.csv";
 
         // Bloco try catch para abrir o arquivo
@@ -88,8 +83,7 @@ public class FormattedReportCsvService {
             saida.format("%s;%s;%s;%s\n", "Sala", "Andar", "Consumo kwm", "Preco");
             for (int i = 0; i < corpo2.getTamanho(); i++) {
                 MonthlyConsumption mc = corpo2.getElemento(i);
-                mc.setConsumoKwm(setTotalHoras * 500);
-                saida.format("%s;%d;%d;%.2f\n", mc.getName(), mc.getFloor(), mc.getConsumoKwm(),mc.getPreco());
+                saida.format("%s;%d;%d;%.2f\n", mc.getName(), mc.getFloor(), mc.getConsumoKwm(), mc.getPreco());
             }
         } catch (FormatterClosedException erro) {
             System.out.println("Erro ao gravar o arquivo");
@@ -110,34 +104,57 @@ public class FormattedReportCsvService {
         return status(201).build();
     }
 
-    public long totalLampadaLigada(EquipmentRelatorio data, RegisterRepository registerRepository){
-        long totalHoras = 0;
+    public Double totalLampadaLigada(EquipmentRelatorio data, RegisterRepository registerRepository, BuildingRepository buildingRepository) {
+        Double totalHoras = 0.0;
         LocalDateTime d1 = null;
         LocalDateTime d2 = null;
         List<Register> lista = registerRepository.findByDateBetween(
-                LocalDateTime.of(data.getDataInicio().getYear(), data.getDataInicio().getMonth(), 01, 00, 00),
-                LocalDateTime.of(data.getDataFim().getYear(), data.getDataFim().getMonth(), 30, 00, 00));
-        if (!lista.isEmpty()) {
+                LocalDateTime.of(
+                        data.getDataInicio().getYear(),
+                        data.getDataInicio().getMonth(),
+                        01, 00, 00),
 
-            for (int i = 0; i < lista.size(); i++) {
+                LocalDateTime.of(
+                        data.getDataFim().getYear(),
+                        data.getDataFim().getMonth(),
+                        data.getDataFim().getDayOfMonth(), 00, 00));
 
-                if (lista.get(i).isOn() && lista.get(i).getEquipment().getIdEquipment() == data.getFkEquipamento()) {
-                    d1 = LocalDateTime.of(lista.get(i).getDate().getYear(), lista.get(i).getDate().getMonth(), lista.get(i).getDate().getDayOfMonth(), lista.get(i).getDate().getHour(), lista.get(i).getDate().getMinute());
-                }else if (lista.get(i).getEquipment().getIdEquipment() == data.getFkEquipamento()){
-                    d2 = LocalDateTime.of(lista.get(i).getDate().getYear(), lista.get(i).getDate().getMonth(), lista.get(i).getDate().getDayOfMonth(), lista.get(i).getDate().getHour(), lista.get(i).getDate().getMinute());
-                }
+        List<Building> listaBuilding = buildingRepository.findByIdBuilding(data.getIdPredio());
 
-                if (d1 != null && d2 != null) {
-                    long diferenca = ChronoUnit.HOURS.between(d1,d2);
-                    //long diferenca = Duration.between(d1,d2);
-                    totalHoras += diferenca;
-                    d1 = null;
-                    d2 = null;
+        if (!lista.isEmpty() && !listaBuilding.isEmpty()) {
+            for (int j = 0; j < listaBuilding.size(); j++) {
+
+                for (int i = 0; i < lista.size(); i++) {
+
+                    if (lista.get(i).isOn() &&
+                            lista.get(i).getEquipment().getIdEquipment()
+                            == listaBuilding.get(j).getRooms().get(j).getClnBoxes().get(j).getIdCLNBox()) {
+
+                        d1 = LocalDateTime.of(lista.get(i).getDate().getYear(), lista.get(i).getDate().getMonth(),
+                                lista.get(i).getDate().getDayOfMonth(),
+                                lista.get(i).getDate().getHour(), lista.get(i).getDate().getMinute());
+
+                    } else if (lista.get(i).getEquipment().getIdEquipment()
+                            == listaBuilding.get(j).getRooms().get(j).getClnBoxes().get(j).getIdCLNBox()) {
+
+                        d2 = LocalDateTime.of(lista.get(i).getDate().getYear(),
+                                lista.get(i).getDate().getMonth(), lista.get(i).getDate().getDayOfMonth(),
+                                lista.get(i).getDate().getHour(), lista.get(i).getDate().getMinute());
+
+                    }
+
+                    if (d1 != null && d2 != null) {
+                        long diferenca = ChronoUnit.MINUTES.between(d1, d2);
+                        //long diferenca = Duration.between(d1,d2);
+                        totalHoras += diferenca;
+                        d1 = null;
+                        d2 = null;
+                    }
                 }
             }
         }
 
-        return totalHoras;
+        return totalHoras / 60;
     }
 
 }

@@ -30,4 +30,5 @@ public interface CompanyRepository extends JpaRepository<Company, Integer> {
     @Query("select new com.autog.register.dto.response.MonthlyConsumption(r.name, r.floor) " +
             "from Building b join b.rooms r where b.idBuilding = ?1")
     List<MonthlyConsumption> corpoDois(int idPredio);
+
 }

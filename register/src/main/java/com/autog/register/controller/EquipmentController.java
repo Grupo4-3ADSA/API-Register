@@ -3,6 +3,7 @@ package com.autog.register.controller;
 import com.autog.register.dto.request.EquipmentRelatorio;
 import com.autog.register.dto.request.EquipmentRequest;
 import com.autog.register.entity.Equipment;
+import com.autog.register.repository.BuildingRepository;
 import com.autog.register.repository.CompanyRepository;
 import com.autog.register.repository.ManagerRepository;
 import com.autog.register.repository.RegisterRepository;
@@ -28,6 +29,9 @@ public class EquipmentController {
     @Autowired
     private RegisterRepository registerRepository;
 
+    @Autowired
+    private BuildingRepository buildingRepository;
+
     @PostMapping
     public ResponseEntity registerEquipment(@RequestBody @Valid Equipment newEquipment) {
         return service.registerEquipment(newEquipment);
@@ -45,7 +49,7 @@ public class EquipmentController {
 
     @PostMapping("/corpodois/")
     public ResponseEntity geracaoRelatorioCsv(@RequestBody EquipmentRelatorio data) {
-        return new FormattedReportCsvService().gravaArquivo(data, repository, registerRepository);
+        return new FormattedReportCsvService().gravaArquivo(data, repository, registerRepository, buildingRepository);
     }
 
     @DeleteMapping("/{id}")

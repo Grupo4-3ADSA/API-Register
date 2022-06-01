@@ -30,6 +30,14 @@ public class Room {
     @OneToMany(mappedBy = "room")
     private List<CLNBox> clnBoxes = new ArrayList();
 
+    public List<CLNBox> getClnBoxes() {
+        return clnBoxes;
+    }
+
+    public void setClnBoxes(List<CLNBox> clnBoxes) {
+        this.clnBoxes = clnBoxes;
+    }
+
     public Integer getIdRoom() {
         return idRoom;
     }
