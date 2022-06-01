@@ -14,6 +14,9 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.time.Duration;
+import java.time.LocalDateTime;
+import java.time.temporal.ChronoUnit;
 import java.util.Formatter;
 import java.util.FormatterClosedException;
 import java.util.List;
@@ -108,39 +111,33 @@ public class FormattedReportCsvService {
     }
 
     public long totalLampadaLigada(EquipmentRelatorio data, RegisterRepository registerRepository){
-        long totalSegundos = 0;
-        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
-        String data1 = data.getDataInicio().toString().replaceAll("T"," ")+".000";
-        String data2 = data.getDataFim().toString().replaceAll("T"," ")+".000";
-        try {
-            String hora1 = data.getDataInicio().toString();
-            String hora2 = data.getDataFim().toString();
-            List<Register> lista = registerRepository.findRegisterByEquipmentAndDateBetween(1, hora1, hora2);
-            if (!lista.isEmpty()) {
+        long totalHoras = 0;
+        LocalDateTime d1 = null;
+        LocalDateTime d2 = null;
+        List<Register> lista = registerRepository.findByDateBetween(
+                LocalDateTime.of(data.getDataInicio().getYear(), data.getDataInicio().getMonth(), 01, 00, 00),
+                LocalDateTime.of(data.getDataFim().getYear(), data.getDataFim().getMonth(), 30, 00, 00));
+        if (!lista.isEmpty()) {
 
-                for (int i = 0; i < lista.size(); i++) {
+            for (int i = 0; i < lista.size(); i++) {
 
-                    Date d1 = null;
-                    Date d2 = null;
+                if (lista.get(i).isOn() && lista.get(i).getEquipment().getIdEquipment() == data.getFkEquipamento()) {
+                    d1 = LocalDateTime.of(lista.get(i).getDate().getYear(), lista.get(i).getDate().getMonth(), lista.get(i).getDate().getDayOfMonth(), lista.get(i).getDate().getHour(), lista.get(i).getDate().getMinute());
+                }else if (lista.get(i).getEquipment().getIdEquipment() == data.getFkEquipamento()){
+                    d2 = LocalDateTime.of(lista.get(i).getDate().getYear(), lista.get(i).getDate().getMonth(), lista.get(i).getDate().getDayOfMonth(), lista.get(i).getDate().getHour(), lista.get(i).getDate().getMinute());
+                }
 
-                    if (lista.get(i).isOn()) {
-                        d1 = sdf.parse(lista.get(i).getDate().toString());
-                    }else {
-                        d2 = sdf.parse(lista.get(i).getDate().toString());
-                    }
-
-                    if (d1 != null && d2 != null) {
-                        long diferenca = d2.getTime() - d1.getTime();
-                        totalSegundos += diferenca / 1000;
-                    }
+                if (d1 != null && d2 != null) {
+                    long diferenca = ChronoUnit.HOURS.between(d1,d2);
+                    //long diferenca = Duration.between(d1,d2);
+                    totalHoras += diferenca;
+                    d1 = null;
+                    d2 = null;
                 }
             }
-        } catch (ParseException e) {
-            e.printStackTrace();
         }
-        long diferencaMinutos = totalSegundos / 60;
 
-        return diferencaMinutos / 60;
+        return totalHoras;
     }
 
 }

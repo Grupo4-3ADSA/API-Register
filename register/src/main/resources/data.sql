@@ -8,15 +8,15 @@ values (2001,'São Paulo Tech School', '07165496000100', '1135894043',
 'atendimento@sptech.school', '2022-02-12', true);
 
 -- Tabela Gestor - Gestor
-insert into Gestor (id_gestor, nome_gestor, login, senha, fk_company) values (500, 'Lorena Machado',
+insert into Gestor (id_gestor, nome_gestor, login, senha, fk_empresa) values (500, 'Lorena Machado',
 'lmachado@oncln.com', '#Tortalaranja123', 2000);
 
-insert into Gestor (id_gestor, nome_gestor, login, senha, fk_company) values (501, 'Marcos Santos',
+insert into Gestor (id_gestor, nome_gestor, login, senha, fk_empresa) values (501, 'Marcos Santos',
 'msantos@oncln.com', '#Tortalaranja123', 2001);
 
 -- Tabela Building - Prédio
-insert into Predio (id_predio, nome_predio, fk_company) values (250, 'Centro Empresarial', 2000);
-insert into Predio (id_predio, nome_predio, fk_company) values (251, 'Digital Building', 2001);
+insert into Predio (id_predio, nome_predio, fk_empresa) values (250, 'Centro Empresarial', 2000);
+insert into Predio (id_predio, nome_predio, fk_empresa) values (251, 'Digital Building', 2001);
 
 
 -- Tabela Address - Endereco
@@ -27,10 +27,10 @@ insert into Endereco (logradouro, numero, bairro, cidade, uf, cep, fk_predio) va
 ('Rua Haddock Lobo', 595, 'Cerqueira César', 'São Paulo', 'SP', '01414905', 251);
 
 -- Tabela Room - Sala
-insert into Sala (nome, andar, fk_building) values ('Sala de reuniões', 2, 250);
-insert into Sala (nome, andar, fk_building) values ('Recursos Humanos', 4, 250);
-insert into Sala (nome, andar, fk_building) values ('A', 1, 251);
-insert into Sala (nome, andar, fk_building) values ('B', 1, 251);
+insert into Sala (nome, andar, fk_predio) values ('Sala de reuniões', 2, 250);
+insert into Sala (nome, andar, fk_predio) values ('Recursos Humanos', 4, 250);
+insert into Sala (nome, andar, fk_predio) values ('A', 1, 251);
+insert into Sala (nome, andar, fk_predio) values ('B', 1, 251);
 
 -- Tabela Scheduling - Agendamento
 insert into Agendamento (data, horario, ligar, fk_sala) values ('2022-05-20', '07:30:00', true, 1);
@@ -49,38 +49,38 @@ insert into CLNBox (qr_code, ip, fk_sala) values ('1-box-faculdade-sala-1a', '3.
 insert into CLNBox (qr_code, ip, fk_sala) values ('2-box-faculdade-sala-1b', '206.131.15.178', 4);
 
 -- Tabela Equipment - Equipamento
-insert into Equipamento (nome, tipo, instalacao, vida_util, potencia, qtd_equipamento, porta, idCLNBox)
+insert into Equipamento (nome, tipo, instalacao, vida_util, potencia, qtd_equipamento, porta, fk_Clnbox)
 values ('Springer Midea Inverter 12.000 Btus','Ar-condicionado', '2022-03-25', 3650,
 220, 1, 1, 1);
-insert into Equipamento (nome, tipo, instalacao, vida_util, potencia, qtd_equipamento, porta, idCLNBox)
+insert into Equipamento (nome, tipo, instalacao, vida_util, potencia, qtd_equipamento, porta, fk_Clnbox)
 values ('Springer Midea Inverter 12.000 Btus','Ar-condicionado', '2022-03-25', 3650,
 220, 2, 5, 2);
-insert into Equipamento (nome, tipo, instalacao, vida_util, potencia, qtd_equipamento, porta, idCLNBox)
+insert into Equipamento (nome, tipo, instalacao, vida_util, potencia, qtd_equipamento, porta, fk_Clnbox)
 values ('Springer Midea Inverter 12.000 Btus','Ar-condicionado', '2022-03-25', 3650,
 220, 2, 5, 2);
-insert into Equipamento (nome, tipo, instalacao, vida_util, potencia, qtd_equipamento, porta, idCLNBox)
+insert into Equipamento (nome, tipo, instalacao, vida_util, potencia, qtd_equipamento, porta, fk_Clnbox)
 values ('Lampada LED Philips','Conjunto de Lampadas', '2022-03-25', 2000,
 220, 4, 1, 1);
-insert into Equipamento (nome, tipo, instalacao, vida_util, potencia, qtd_equipamento, porta, idCLNBox)
+insert into Equipamento (nome, tipo, instalacao, vida_util, potencia, qtd_equipamento, porta, fk_Clnbox)
 values ('Lampada LED Philips','Conjunto de Lampadas', '2022-03-25', 2000,
 220, 12, 5, 2);
 
-insert into Equipamento (nome, tipo, instalacao, vida_util, potencia, qtd_equipamento, porta, idCLNBox)
+insert into Equipamento (nome, tipo, instalacao, vida_util, potencia, qtd_equipamento, porta, fk_Clnbox)
 values ('Split LG Dual Inverter Voice ARTCOOL UV Nano','Ar-condicionado', '2022-03-01', 3650,
 220, 2, 1, 3);
-insert into Equipamento (nome, tipo, instalacao, vida_util, potencia, qtd_equipamento, porta, idCLNBox)
+insert into Equipamento (nome, tipo, instalacao, vida_util, potencia, qtd_equipamento, porta, fk_Clnbox)
 values ('Split LG Dual Inverter Voice ARTCOOL UV Nano','Ar-condicionado', '2022-03-01', 3650,
 220, 2, 5, 3);
-insert into Equipamento (nome, tipo, instalacao, vida_util, potencia, qtd_equipamento, porta, idCLNBox)
+insert into Equipamento (nome, tipo, instalacao, vida_util, potencia, qtd_equipamento, porta, fk_Clnbox)
 values ('Split LG Dual Inverter Voice ARTCOOL UV Nano','Ar-condicionado', '2022-03-01', 3650,
 220, 2, 1, 4);
-insert into Equipamento (nome, tipo, instalacao, vida_util, potencia, qtd_equipamento, porta, idCLNBox)
+insert into Equipamento (nome, tipo, instalacao, vida_util, potencia, qtd_equipamento, porta, fk_Clnbox)
 values ('Split LG Dual Inverter Voice ARTCOOL UV Nano','Ar-condicionado', '2022-03-01', 3650,
 220, 2, 5, 4);
 
-insert into Equipamento (nome, tipo, instalacao, vida_util, potencia, qtd_equipamento, porta, idCLNBox)
+insert into Equipamento (nome, tipo, instalacao, vida_util, potencia, qtd_equipamento, porta, fk_Clnbox)
 values ('Lampada LED Philips','Conjunto de Lampadas', '2022-03-01', 2000, 220, 20, 5, 3);
-insert into Equipamento (nome, tipo, instalacao, vida_util, potencia, qtd_equipamento, porta, idCLNBox)
+insert into Equipamento (nome, tipo, instalacao, vida_util, potencia, qtd_equipamento, porta, fk_Clnbox)
 values ('Lampada LED Philips','Conjunto de Lampadas', '2022-03-01', 2000, 220, 20, 1, 4);
 
 -- Tabela Register - Registro
