@@ -1,8 +1,9 @@
 package com.autog.register.entity;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.autog.register.dto.response.RoomResponse;
 
 import javax.persistence.*;
+import javax.validation.constraints.NotNull;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -21,6 +22,7 @@ public class CLNBox {
     @Column(name = "ip")
     private String ip;
 
+    @NotNull
     @ManyToOne
     @JoinColumn(name = "fkSala", referencedColumnName = "idSala")
     private Room room;
@@ -28,9 +30,8 @@ public class CLNBox {
     @OneToMany(mappedBy = "clnBox")
     private List<Equipment> equipment = new ArrayList();
 
-    @JsonIgnore
-    public Room getRoom() {
-        return room;
+    public RoomResponse getRoom() {
+        return new RoomResponse(room.getIdRoom(), room.getName(), room.getFloor());
     }
 
     public void setRoom(Room room) {
