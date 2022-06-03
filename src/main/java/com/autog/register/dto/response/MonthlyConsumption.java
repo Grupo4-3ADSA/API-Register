@@ -6,7 +6,7 @@ public class MonthlyConsumption {
 
     private String name;
     private Integer floor;
-    private long consumoKwm;
+    private Double consumoKwm;
     private Double preco;
 
     public MonthlyConsumption(String name, Integer floor) {
@@ -30,11 +30,11 @@ public class MonthlyConsumption {
         this.floor = floor;
     }
 
-    public long getConsumoKwm() {
+    public Double getConsumoKwm() {
         return consumoKwm;
     }
 
-    public void setConsumoKwm(long consumoKwm) {
+    public void setConsumoKwm(Double consumoKwm) {
         this.consumoKwm = consumoKwm;
     }
 

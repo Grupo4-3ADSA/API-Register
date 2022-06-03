@@ -48,7 +48,7 @@ public class FormattedReportCsvService {
         FileWriter arq = null;
         Formatter saida = null;
         Boolean deuRuim = false;
-        Double setTotalHoras = totalLampadaLigada(data, registerRepository, buildingRepository);
+        Double setTotalKwm = totalLampadaLigada(data, registerRepository, buildingRepository);
         String nomeArq = "relatorio.csv";
 
         // Bloco try catch para abrir o arquivo
@@ -83,6 +83,7 @@ public class FormattedReportCsvService {
             saida.format("%s;%s;%s;%s\n", "Sala", "Andar", "Consumo kwm", "Preco");
             for (int i = 0; i < corpo2.getTamanho(); i++) {
                 MonthlyConsumption mc = corpo2.getElemento(i);
+                mc.setConsumoKwm(setTotalKwm);
                 saida.format("%s;%d;%d;%.2f\n", mc.getName(), mc.getFloor(), mc.getConsumoKwm(), mc.getPreco());
             }
         } catch (FormatterClosedException erro) {
@@ -108,6 +109,7 @@ public class FormattedReportCsvService {
         Double totalHoras = 0.0;
         LocalDateTime d1 = null;
         LocalDateTime d2 = null;
+        Double potencia = null;
         List<Register> lista = registerRepository.findByDateBetween(
                 LocalDateTime.of(
                         data.getDataInicio().getYear(),
@@ -145,16 +147,20 @@ public class FormattedReportCsvService {
 
                     if (d1 != null && d2 != null) {
                         long diferenca = ChronoUnit.MINUTES.between(d1, d2);
+
                         //long diferenca = Duration.between(d1,d2);
                         totalHoras += diferenca;
                         d1 = null;
                         d2 = null;
+
+                        potencia = (totalHoras/60) * listaBuilding.get(j).getRooms().get(j).getClnBoxes().get(j).getEquipment().get(j).getPotency();
+
                     }
                 }
             }
         }
 
-        return totalHoras / 60;
+        return potencia;
     }
 
 }
