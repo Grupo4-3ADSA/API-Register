@@ -2,6 +2,7 @@ package com.autog.register.service;
 
 import com.autog.register.dto.request.RoomRequest;
 import com.autog.register.dto.response.RoomResponse;
+import com.autog.register.dto.response.RoomWthClnBox;
 import com.autog.register.entity.Room;
 import com.autog.register.repository.RoomRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -25,7 +26,7 @@ public class RoomService {
     }
 
     public ResponseEntity listAllRooms(Integer idBuilding) {
-        List<RoomResponse> selectedList = repository.selectedList(idBuilding);
+        List<RoomWthClnBox> selectedList = repository.selectedList(idBuilding);
         return selectedList.isEmpty() ? noContent().build() : ok().body(selectedList);
     }
 

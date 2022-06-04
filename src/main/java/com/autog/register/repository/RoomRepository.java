@@ -1,6 +1,7 @@
 package com.autog.register.repository;
 
 import com.autog.register.dto.response.RoomResponse;
+import com.autog.register.dto.response.RoomWthClnBox;
 import com.autog.register.entity.Room;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Modifying;
@@ -12,7 +13,7 @@ import java.util.List;
 public interface RoomRepository extends JpaRepository<Room, Integer> {
 
     @Query("SELECT new com.autog.register.dto.response.RoomResponse(r.idRoom, r.name, r.floor) FROM Room r where building.idBuilding = ?1")
-    List<RoomResponse> selectedList(Integer idBuilding);
+    List<RoomWthClnBox> selectedList(Integer idBuilding);
 
     @Query("SELECT r FROM Room r JOIN Company c WHERE c.idCompany = ?1")
     List<Room> getRoomByCompany(Integer idCompany);
