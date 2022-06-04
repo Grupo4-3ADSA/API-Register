@@ -26,7 +26,7 @@ public class RoomService {
     }
 
     public ResponseEntity listAllRooms(Integer idBuilding) {
-        List<RoomWthClnBox> selectedList = repository.selectedList(idBuilding);
+        List<RoomWthClnBox> selectedList = repository.selectedListWithClnBox(idBuilding);
         return selectedList.isEmpty() ? noContent().build() : ok().body(selectedList);
     }
 

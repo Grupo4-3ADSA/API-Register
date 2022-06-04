@@ -21,7 +21,6 @@ public class RoomController {
         return service.registerRoom(newRoom);
     }
     
-    
     @GetMapping("/{idBuilding}")
     public ResponseEntity listAllRooms(@PathVariable Integer idBuilding) {
         return service.listAllRooms(idBuilding);
