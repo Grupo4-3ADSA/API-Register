@@ -29,10 +29,9 @@ public interface EquipmentRepository extends JpaRepository<Equipment, Integer> {
             "INNER JOIN [dbo].[clnbox] as c\n" +
             "ON s.id_sala = c.fk_sala\n" +
             "INNER JOIN [dbo].[equipamento] as e\n" +
-            "ON c.id_clnbox = e.fk_clnbox\n" +
-            "WHERE c.id_clnbox = ?1",
+            "ON c.id_clnbox = e.fk_clnbox\n",
             nativeQuery=true)
-    List<Object[]> getEquipmentAndRoomByClnBox(Integer idCLNBox);
+    List<Object[]> getEquipmentAndRoomByClnBox();
 
     @Transactional
     @Modifying
@@ -43,4 +42,7 @@ public interface EquipmentRepository extends JpaRepository<Equipment, Integer> {
     @Modifying
     @Query("UPDATE Equipment e SET e.name = ?2 WHERE e.idEquipment = ?1")
     void updateEquipment(Integer id, String name);
+
+    @Query("SELECT e FROM Equipment e WHERE idEquipment = ?1")
+    List<Equipment> getEquip(Integer idEquipment);
 }

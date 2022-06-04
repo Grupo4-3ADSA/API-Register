@@ -37,9 +37,14 @@ public class EquipmentController {
         return service.registerEquipment(newEquipment);
     }
 
-    @GetMapping("/{idCompany}")
-    public ResponseEntity getEquipment(@PathVariable Integer idCompany) {
-        return service.getEquipment(idCompany);
+    @GetMapping
+    public ResponseEntity getEquipment() {
+        return service.getEquipment();
+    }
+
+    @GetMapping("/{idEquipment}")
+    public ResponseEntity getEquipmentByEquipment(@PathVariable Integer idEquipment) {
+        return service.getEquipmentByEquipment(idEquipment);
     }
 
     @PatchMapping("/{id}")

@@ -28,8 +28,8 @@ public class EquipmentService {
         return ResponseEntity.status(201).build();
     }
 
-    public ResponseEntity getEquipment(Integer idCLNBox) {
-        List<Object[]> equipments = repository.getEquipmentAndRoomByClnBox(idCLNBox);
+    public ResponseEntity getEquipment() {
+        List<Object[]> equipments = repository.getEquipmentAndRoomByClnBox();
         List<EquipmentResponse> equipmentsToBeReturned = new ArrayList<>();
 //        List<Equipment> equipments = repository.getEquipmentByClnBox(idCLNBox);
 
@@ -53,6 +53,11 @@ public class EquipmentService {
             return ResponseEntity.noContent().build();
         }
         return ResponseEntity.ok(equipmentsToBeReturned);
+    }
+
+    public ResponseEntity getEquipmentByEquipment(Integer idEquipment){
+        List<Equipment> equipments = repository.getEquip(idEquipment);
+        return ResponseEntity.ok(equipments);
     }
 
     private LocalDate convertStringToLocalDate(String dateToBeFormatted) {

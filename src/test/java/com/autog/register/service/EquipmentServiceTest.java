@@ -54,7 +54,7 @@ class EquipmentServiceTest {
 
         when(repository.getEquipmentByClnBox(id)).thenReturn(listMock);
 
-        ResponseEntity<List<Equipment>> response = service.getEquipment(id);
+        ResponseEntity<List<Equipment>> response = service.getEquipment();
 
         assertEquals(listMock, response.getBody());
         assertEquals(200, response.getStatusCodeValue());
