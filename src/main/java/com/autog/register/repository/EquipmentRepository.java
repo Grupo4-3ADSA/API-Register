@@ -29,9 +29,30 @@ public interface EquipmentRepository extends JpaRepository<Equipment, Integer> {
             "INNER JOIN [dbo].[clnbox] as c\n" +
             "ON s.id_sala = c.fk_sala\n" +
             "INNER JOIN [dbo].[equipamento] as e\n" +
+            "ON c.id_clnbox = e.fk_clnbox\n" +
+            "WHERE c.id_clnbox = ?1",
+            nativeQuery=true)
+    List<Object[]> getEquipmentAndRoomByClnBox(Integer idCLNBox);
+
+    @Query(value="SELECT \n" +
+            "s.id_sala,\n" +
+            " s.nome as s_nome," +
+            " s.andar,\n" +
+            "  e.id_equipamento,\n" +
+            "   e.nome, e.tipo, \n" +
+            "   e.instalacao, \n" +
+            "   e.vida_util,\n" +
+            "    e.potencia,\n" +
+            "\t e.qtd_equipamento,\n" +
+            "\t  e.porta\n" +
+            "FROM [dbo].[sala] as s\n" +
+            "INNER JOIN [dbo].[clnbox] as c\n" +
+            "ON s.id_sala = c.fk_sala\n" +
+            "INNER JOIN [dbo].[equipamento] as e\n" +
             "ON c.id_clnbox = e.fk_clnbox\n",
             nativeQuery=true)
-    List<Object[]> getEquipmentAndRoomByClnBox();
+    List<Object[]> getAllEquipments();
+
 
     @Transactional
     @Modifying

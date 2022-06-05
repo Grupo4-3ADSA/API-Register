@@ -38,11 +38,16 @@ public class EquipmentController {
     }
 
     @GetMapping
-    public ResponseEntity getEquipment() {
-        return service.getEquipment();
+    public ResponseEntity listAllEquips(){
+        return service.listAllEquips();
     }
 
-    @GetMapping("/{idEquipment}")
+    @GetMapping("/{idCompany}")
+    public ResponseEntity getEquipment(@PathVariable Integer idCompany) {
+        return service.getEquipment(idCompany);
+    }
+
+    @GetMapping("/equips/{idEquipment}")
     public ResponseEntity getEquipmentByEquipment(@PathVariable Integer idEquipment) {
         return service.getEquipmentByEquipment(idEquipment);
     }
