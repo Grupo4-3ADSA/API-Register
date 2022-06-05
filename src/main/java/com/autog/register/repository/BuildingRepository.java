@@ -11,7 +11,6 @@ public interface BuildingRepository extends JpaRepository<Building, Integer> {
     @Query("SELECT b FROM Building b JOIN Company c WHERE c.idCompany = ?1")
     List<Building> getBuildingByCompany(Integer idCompany);
 
-    List<Building> findByIdBuilding(Integer idPredio);
+    Building findByIdBuilding(Integer idPredio);
 
-    Building findById(int idPredio);
 }
