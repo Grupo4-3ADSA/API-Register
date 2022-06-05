@@ -27,6 +27,17 @@ public class Building {
     @OneToMany(mappedBy = "building")
     private List<Room> rooms = new ArrayList();
 
+//    @OneToMany(mappedBy = "building")
+//    private List<Report> report = new ArrayList();
+//
+//    public List<Report> getReport() {
+//        return report;
+//    }
+//
+//    public void setReport(List<Report> report) {
+//        this.report = report;
+//    }
+
     public List<Room> getRooms() {
         return rooms;
     }
