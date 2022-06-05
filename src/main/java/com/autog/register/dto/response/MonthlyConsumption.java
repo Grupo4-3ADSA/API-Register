@@ -1,7 +1,5 @@
 package com.autog.register.dto.response;
 
-import com.autog.register.service.FormattedReportCsvService;
-
 public class MonthlyConsumption {
 
     private String name;
@@ -39,12 +37,11 @@ public class MonthlyConsumption {
     }
 
     public Double getPreco() {
-        setPreco(getConsumoKwm()*0.28738);
         return preco;
     }
 
     public void setPreco(Double preco) {
-        this.preco = preco;
+        this.preco = getConsumoKwm()*0.28738;
     }
 
     @Override

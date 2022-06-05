@@ -7,15 +7,13 @@ import java.time.LocalDateTime;
 public class EquipmentRelatorio {
 
     private Integer idPredio;
-    private Integer fkEquipamento;
-    private LocalDateTime dataInicio;
-    private LocalDateTime dataFim;
+    private Integer mes;
+    private Integer ano;
 
-    public EquipmentRelatorio(Integer idPredio, Integer fkEquipamento, LocalDateTime dataInicio, LocalDateTime dataFim) {
+    public EquipmentRelatorio(Integer idPredio, Integer mes, Integer ano) {
         this.idPredio = idPredio;
-        this.fkEquipamento = fkEquipamento;
-        this.dataInicio = dataInicio;
-        this.dataFim = dataFim;
+        this.mes = mes;
+        this.ano = ano;
     }
 
     public Integer getIdPredio() {
@@ -26,27 +24,19 @@ public class EquipmentRelatorio {
         this.idPredio = idPredio;
     }
 
-    public Integer getFkEquipamento() {
-        return fkEquipamento;
+    public Integer getMes() {
+        return mes;
     }
 
-    public void setFkEquipamento(Integer fkEquipamento) {
-        this.fkEquipamento = fkEquipamento;
-    }
-    @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss")
-    public LocalDateTime getDataInicio() {
-        return dataInicio;
+    public void setMes(Integer mes) {
+        this.mes = mes;
     }
 
-    public void setDataInicio(LocalDateTime dataInicio) {
-        this.dataInicio = dataInicio;
-    }
-    @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss")
-    public LocalDateTime getDataFim() {
-        return dataFim;
+    public Integer getAno() {
+        return ano;
     }
 
-    public void setDataFim(LocalDateTime dataFim) {
-        this.dataFim = dataFim;
+    public void setAno(Integer ano) {
+        this.ano = ano;
     }
 }
