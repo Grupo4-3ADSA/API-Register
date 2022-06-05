@@ -23,7 +23,7 @@ public class CLNBox {
     private String ip;
 
     @NotNull
-    @ManyToOne
+    @OneToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "fkSala", referencedColumnName = "idSala")
     private Room room;
 

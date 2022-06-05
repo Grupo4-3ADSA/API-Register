@@ -27,15 +27,15 @@ public class Room {
     @JoinColumn(name = "fkPredio", referencedColumnName = "idPredio")
     private Building building;
 
-    @OneToMany(mappedBy = "room")
-    private List<CLNBox> clnBoxes = new ArrayList();
+    @OneToOne(mappedBy = "room")
+    private CLNBox clnBox;
 
-    public List<CLNBox> getClnBoxes() {
-        return clnBoxes;
+    public CLNBox getClnBoxes() {
+        return clnBox;
     }
 
-    public void setClnBoxes(List<CLNBox> clnBoxes) {
-        this.clnBoxes = clnBoxes;
+    public void setClnBoxes(CLNBox clnBox) {
+        this.clnBox = clnBox;
     }
 
     public Integer getIdRoom() {
