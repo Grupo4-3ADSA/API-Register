@@ -130,14 +130,14 @@ public class FormattedReportCsvService {
 
                     if (lista.get(i).isOn() &&
                             lista.get(i).getEquipment().getIdEquipment()
-                            == building.getRooms().get(j).getClnBoxes().get(j).getIdCLNBox()) {
+                            == building.getRooms().get(j).getClnBoxes().getIdCLNBox()) {
 
                         d1 = LocalDateTime.of(lista.get(i).getDate().getYear(), lista.get(i).getDate().getMonth(),
                                 lista.get(i).getDate().getDayOfMonth(),
                                 lista.get(i).getDate().getHour(), lista.get(i).getDate().getMinute());
 
                     } else if (lista.get(i).getEquipment().getIdEquipment()
-                            == building.getRooms().get(j).getClnBoxes().get(j).getIdCLNBox()) {
+                            == building.getRooms().get(j).getClnBoxes().getIdCLNBox()) {
 
                         d2 = LocalDateTime.of(lista.get(i).getDate().getYear(),
                                 lista.get(i).getDate().getMonth(), lista.get(i).getDate().getDayOfMonth(),
@@ -153,7 +153,7 @@ public class FormattedReportCsvService {
                         d1 = null;
                         d2 = null;
 
-                        potencia = (totalHoras/60) * building.getRooms().get(j).getClnBoxes().get(j).getEquipment().get(j).getPotency();
+                        potencia = (totalHoras/60) * building.getRooms().get(j).getClnBoxes().getEquipment().get(j).getPotency();
 
                     }
                 }
