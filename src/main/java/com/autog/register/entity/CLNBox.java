@@ -24,15 +24,17 @@ public class CLNBox {
     private String ip;
 
     @NotNull
-    @OneToOne(cascade = CascadeType.ALL)
+    @OneToOne(cascade = CascadeType.MERGE)
     @JoinColumn(name = "fkSala", referencedColumnName = "idSala")
     private Room room;
 
     @OneToMany(mappedBy = "clnBox")
     private List<Equipment> equipment = new ArrayList();
 
-    @JsonIgnore
     public RoomResponse getRoom() {
+        if (room == null) {
+            return null;
+        }
         return new RoomResponse(room.getIdRoom(), room.getName(), room.getFloor());
     }
 
