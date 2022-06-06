@@ -17,4 +17,12 @@ public interface CLNBoxRepository extends JpaRepository<CLNBox, Integer> {
     @Modifying
     @Query("UPDATE CLNBox c SET c.qrCode = ?2, c.ip = ?3 WHERE c.idCLNBox = ?1")
     void updateCLNBox(Integer id, String qrCode, String ip);
+
+    @Transactional
+    @Modifying
+    @Query("UPDATE CLNBox c SET c.ip = ?2 WHERE c.idCLNBox = ?1")
+    void updateIpCLNBox(Integer id,  String ip);
+
+
+
 }

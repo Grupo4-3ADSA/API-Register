@@ -7,6 +7,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
+import javax.ws.rs.Path;
 
 @RestController
 @RequestMapping("/clnboxex")
@@ -34,5 +35,9 @@ public class CLNBoxController {
             @PathVariable Integer id,
             @RequestBody @Valid CLNBox newCLNBox) {
         return service.editCLNBox(id, newCLNBox);
+    }
+    @PatchMapping("/{id}/{ip}")
+    public ResponseEntity updateIpCLNBox(@PathVariable int id,@PathVariable String ip){
+        return service.updateIpClnBox(id,ip);
     }
 }

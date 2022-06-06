@@ -42,4 +42,13 @@ public class CLNBoxService {
         }
         return ResponseEntity.status(404).build();
     }
+
+    public ResponseEntity updateIpClnBox(int id, String ip) {
+        if (repository.existsById(id)) {
+            repository.updateIpCLNBox(id,ip);
+            return ResponseEntity.status(200).build();
+        }
+        return ResponseEntity.status(404).build();
+
+    }
 }
