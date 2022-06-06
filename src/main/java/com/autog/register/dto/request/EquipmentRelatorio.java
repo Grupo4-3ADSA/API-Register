@@ -18,6 +18,9 @@ public class EquipmentRelatorio {
         this.dataFim = dataFim;
     }
 
+    public EquipmentRelatorio() {
+    }
+
     public Integer getIdPredio() {
         return idPredio;
     }

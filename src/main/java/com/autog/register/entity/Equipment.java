@@ -42,7 +42,8 @@ public class Equipment {
     private Integer door;
 
     @ManyToOne
-    @JoinColumn(name = "fkClnbox", referencedColumnName = "idClnbox")
+    @NotNull
+    @JoinColumn(name = "fkClnbox", referencedColumnName = "idCLNBox")
     private CLNBox clnBox;
 
     public Integer getIdEquipment() {
@@ -109,7 +110,7 @@ public class Equipment {
         this.door = door;
     }
 
-    @JsonIgnore
+//    @JsonIgnore
     public CLNBox getClnBox() {
         return clnBox;
     }
