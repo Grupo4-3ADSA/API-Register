@@ -10,6 +10,9 @@ public class EquipmentRelatorio {
     private Integer mes;
     private Integer ano;
 
+    public EquipmentRelatorio() {
+    }
+
     public EquipmentRelatorio(Integer idPredio, Integer mes, Integer ano) {
         this.idPredio = idPredio;
         this.mes = mes;
