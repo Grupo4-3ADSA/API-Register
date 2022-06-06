@@ -39,8 +39,7 @@ public class MonthlyConsumption {
     }
 
     public Double getPreco() {
-        setPreco(getConsumoKwm()*0.28738);
-        return preco;
+        return getConsumoKwm()*0.28738;
     }
 
     public void setPreco(Double preco) {
