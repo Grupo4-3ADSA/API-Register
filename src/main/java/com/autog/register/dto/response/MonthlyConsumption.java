@@ -1,13 +1,14 @@
 package com.autog.register.dto.response;
 
-import com.autog.register.service.FormattedReportCsvService;
-
 public class MonthlyConsumption {
 
     private String name;
     private Integer floor;
     private Double consumoKwm;
     private Double preco;
+
+    public MonthlyConsumption() {
+    }
 
     public MonthlyConsumption(String name, Integer floor) {
         this.name = name;

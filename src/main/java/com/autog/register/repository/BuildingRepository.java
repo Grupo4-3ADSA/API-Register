@@ -13,4 +13,5 @@ public interface BuildingRepository extends JpaRepository<Building, Integer> {
 
     Building findByIdBuilding(Integer idPredio);
 
+
 }
