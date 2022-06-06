@@ -36,7 +36,7 @@ public class CLNBoxController {
             @RequestBody @Valid CLNBox newCLNBox) {
         return service.editCLNBox(id, newCLNBox);
     }
-    @PatchMapping("/{id}/{ip}")
+    @GetMapping("/{id}/{ip}")
     public ResponseEntity updateIpCLNBox(@PathVariable int id,@PathVariable String ip){
         return service.updateIpClnBox(id,ip);
     }
