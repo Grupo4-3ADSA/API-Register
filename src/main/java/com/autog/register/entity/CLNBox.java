@@ -1,6 +1,7 @@
 package com.autog.register.entity;
 
 import com.autog.register.dto.response.RoomResponse;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
@@ -30,6 +31,7 @@ public class CLNBox {
     @OneToMany(mappedBy = "clnBox")
     private List<Equipment> equipment = new ArrayList();
 
+    @JsonIgnore
     public RoomResponse getRoom() {
         return new RoomResponse(room.getIdRoom(), room.getName(), room.getFloor());
     }
