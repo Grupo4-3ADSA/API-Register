@@ -22,6 +22,11 @@ public class RoomController {
     }
     
     @GetMapping("/{idBuilding}")
+    public ResponseEntity listRoomsToOncln(@PathVariable Integer idBuilding) {
+        return service.listWithClnBox(idBuilding);
+    }
+
+    @GetMapping("/all/{idBuilding}")
     public ResponseEntity listAllRooms(@PathVariable Integer idBuilding) {
         return service.listAllRooms(idBuilding);
     }

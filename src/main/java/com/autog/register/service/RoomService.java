@@ -25,8 +25,13 @@ public class RoomService {
         return status(201).build();
     }
 
-    public ResponseEntity listAllRooms(Integer idBuilding) {
+    public ResponseEntity listWithClnBox(Integer idBuilding) {
         List<RoomWthClnBox> selectedList = repository.selectedListWithClnBox(idBuilding);
+        return selectedList.isEmpty() ? noContent().build() : ok().body(selectedList);
+    }
+
+    public ResponseEntity listAllRooms(Integer idBuilding) {
+        List<RoomResponse> selectedList = repository.selectedList(idBuilding);
         return selectedList.isEmpty() ? noContent().build() : ok().body(selectedList);
     }
 
