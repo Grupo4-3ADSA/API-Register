@@ -111,9 +111,9 @@ public class Equipment {
     }
 
 //    @JsonIgnore
-    public CLNBox getClnBox() {
-        return clnBox;
-    }
+//    public CLNBox getClnBox() {
+//        return clnBox;
+//    }
 
     public void setClnBox(CLNBox clnBox) {
         this.clnBox = clnBox;

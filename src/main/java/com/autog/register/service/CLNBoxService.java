@@ -24,7 +24,8 @@ public class CLNBoxService {
 
     public ResponseEntity getCLNBox() {
         List<CLNBox> clnBoxes = repository.findAll();
-        return clnBoxes.isEmpty() ? noContent().build() : ok().body(clnBoxes);
+        System.out.println(clnBoxes);
+        return clnBoxes.isEmpty() ? noContent().build() : ok(clnBoxes);
     }
 
     public ResponseEntity editCLNBox(Integer id, CLNBox newCLNBox) {
