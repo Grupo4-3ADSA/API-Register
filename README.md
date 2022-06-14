@@ -1,2 +1,2 @@
 # API-Register
-API com CRUD
+API para registrar dados em nosso sistema
