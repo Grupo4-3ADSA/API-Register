@@ -13,7 +13,7 @@ public class Gestor {
     private Integer idManager;
 
     @NotBlank
-    @Column(name = "nomeGestor")
+    @Column(name = "nome")
     private String nameManager;
 
     @NotBlank
