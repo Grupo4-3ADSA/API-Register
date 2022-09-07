@@ -14,7 +14,7 @@ public class Building {
     @Column(name = "idPredio")
     private Integer idBuilding;
 
-    @Column(name = "nomePredio")
+    @Column(name = "nome")
     private String nameBuilding;
 
     @ManyToOne

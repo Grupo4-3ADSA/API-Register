@@ -3,12 +3,12 @@ package com.autog.register.controller;
 import com.autog.register.dto.request.EquipmentRelatorio;
 import com.autog.register.repository.*;
 import com.autog.register.service.FormattedReportService;
-import com.sun.istack.NotNull;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 
+import javax.validation.constraints.NotNull;
 import java.io.IOException;
 
 @RestController

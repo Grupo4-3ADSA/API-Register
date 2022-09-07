@@ -8,7 +8,7 @@ import java.time.LocalDate;
 import java.time.LocalDateTime;
 
 @Entity
-@Table(name = "ValorTarifa")
+@Table(name = "valorTarifa")
 public class RateValue {
 
     @Id
@@ -17,14 +17,14 @@ public class RateValue {
     private Integer idRateValue;
 
     @NotNull
-    @Column(name = "valorTarifa_kwh")
+    @Column(name = "valorTarifaKwh")
     private Double rateValue;
 
     @Column(name = "bandeira")
     private String flag;
 
     @PastOrPresent
-    @Column(name = "data")
+    @Column(name = "date")
     private LocalDateTime date;
 
     public Integer getIdRateValue() {
